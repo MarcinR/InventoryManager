@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1096663118684-bad951efue1385a8h4plsmjn32deh767.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1096663118684-bad951efue1385a8h4plsmjn32deh767</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAZGdTmJSMhVY0fNBtF0eeJMdR5GZAHQzc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1096663118684</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.appunite.test</string>
+	<key>PROJECT_ID</key>
+	<string>inventory-manger</string>
+	<key>STORAGE_BUCKET</key>
+	<string>inventory-manger.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1096663118684:ios:bef4e84f1ba2cd7d06c799</string>
+	<key>DATABASE_URL</key>
+	<string>https://inventory-manger.firebaseio.com</string>
+</dict>
+</plist>

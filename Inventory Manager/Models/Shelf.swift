@@ -1,0 +1,17 @@
+
+//
+//  Shelf.swift
+//  Inventory Manager
+//
+//  Created by Marcin Ratajczak on 20/09/2019.
+//  Copyright © 2019 A. All rights reserved.
+//
+
+import Foundation
+
+struct Shelf {
+    let id: String
+    let code: String
+    let place: String
+    let description: String
+}
