@@ -1,0 +1,6 @@
+framework module Pods_Inventory_Manager {
+  umbrella header "Pods-Inventory Manager-umbrella.h"
+
+  export *
+  module * { export * }
+}

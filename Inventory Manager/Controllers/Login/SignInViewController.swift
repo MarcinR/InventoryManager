@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignInViewController: UIViewController {
     @IBOutlet private var emailTextField: UITextField!
@@ -15,11 +16,43 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
     }
     
     
     @IBAction func loginAction() {
+        guard let email = emailTextField.text, email.isValidEmail() else {
+            showMessage(message: "Invalid email address.")
+            return
+        }
+        guard let password = passwordTextField.text, password.isValidPassword() else {
+            showMessage(message: "Password should be longer than 5 characters.")
+            return
+        }
         
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            if let error = error {
+                self?.showMessage(message: error.localizedDescription)
+                return
+            }
+          print(authResult)
+        }
+    }
+    
+    @IBAction func endEditing() {
+        view.endEditing(true)
+    }
+}
+
+extension SignInViewController: UITextFieldDelegate {
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        loginButton.isEnabled = emailTextField.text.isNotEmpty() && passwordTextField.text.isNotEmpty()
+//        return true
+//    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        print(textField.text)
+        loginButton.isEnabled = emailTextField.text.isNotEmpty() && passwordTextField.text.isNotEmpty()
     }
 }

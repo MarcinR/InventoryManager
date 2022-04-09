@@ -12,13 +12,13 @@
         <!--Sign Up View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="SignUpViewController" customModule="Inventory_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="SignUpViewController" customModule="Inventory_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="G3I-XU-hUC">
-                                <rect key="frame" x="30" y="306.5" width="354" height="195"/>
+                                <rect key="frame" x="30" y="274.5" width="354" height="259.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29e-Fi-6kR">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="20.5"/>
@@ -30,6 +30,9 @@
                                         <rect key="frame" x="0.0" y="25.5" width="354" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="p98-7s-CbV"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bm-Nw-hwH">
                                         <rect key="frame" x="0.0" y="64.5" width="354" height="20.5"/>
@@ -41,18 +44,38 @@
                                         <rect key="frame" x="0.0" y="90" width="354" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="QAC-si-MNQ"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="confirm password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccc-ST-1c4">
+                                        <rect key="frame" x="0.0" y="129" width="354" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qCJ-gD-qkd">
+                                        <rect key="frame" x="0.0" y="154.5" width="354" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="orZ-Ym-SGI"/>
+                                        </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PPd-h2-VUv">
-                                        <rect key="frame" x="0.0" y="129" width="354" height="30"/>
+                                        <rect key="frame" x="0.0" y="193.5" width="354" height="30"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="gqS-K5-b5z"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syd-uQ-FvG">
-                                        <rect key="frame" x="0.0" y="164" width="354" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syd-uQ-FvG">
+                                        <rect key="frame" x="0.0" y="228.5" width="354" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Create account"/>
+                                        <connections>
+                                            <action selector="signUpAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fLe-Ck-MzL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -61,7 +84,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Already have account?  Sign in"/>
                                 <connections>
-                                    <segue destination="IH5-GN-mHr" kind="show" id="CqN-y9-chU"/>
+                                    <segue destination="IH5-GN-mHr" kind="showDetail" id="CqN-y9-chU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -76,21 +99,31 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="G3I-XU-hUC" secondAttribute="trailing" constant="30" id="iD6-NE-IeR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YWe-Yi-caG" secondAttribute="trailing" constant="30" id="veZ-de-QtR"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="h1A-3M-LyY" appends="YES" id="CUm-zV-O0A"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="kaY-RR-SKj"/>
                     <connections>
+                        <outlet property="confirmPasswordTextField" destination="qCJ-gD-qkd" id="nOX-gO-4f6"/>
                         <outlet property="emailTextField" destination="35w-QQ-wvH" id="pZR-rw-iV5"/>
-                        <outlet property="passwordTextField" destination="b6T-uN-o30" id="OfG-1q-rJQ"/>
+                        <outlet property="passwordTextField" destination="b6T-uN-o30" id="yxH-q8-PRA"/>
+                        <outlet property="signUpButton" destination="syd-uQ-FvG" id="0IS-jX-nU9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="h1A-3M-LyY">
+                    <connections>
+                        <action selector="endEditing" destination="Y6W-OH-hqX" id="aTs-Hx-vzW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="9" y="23"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="Fhx-Ae-jbg">
             <objects>
-                <viewController id="IH5-GN-mHr" customClass="SignInViewController" customModule="Inventory_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IH5-GN-mHr" customClass="SignInViewController" customModule="Inventory_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qlb-3I-UwL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -108,6 +141,10 @@
                                         <rect key="frame" x="0.0" y="25.5" width="354" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <connections>
+                                            <action selector="endEditing" destination="IH5-GN-mHr" eventType="touchUpOutside" id="fkx-cy-42b"/>
+                                            <outlet property="delegate" destination="IH5-GN-mHr" id="K1u-GY-R4Q"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1u-yQ-JmJ">
                                         <rect key="frame" x="0.0" y="64.5" width="354" height="20.5"/>
@@ -119,6 +156,10 @@
                                         <rect key="frame" x="0.0" y="90" width="354" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="endEditing" destination="IH5-GN-mHr" eventType="touchUpOutside" id="Zpa-z5-dN8"/>
+                                            <outlet property="delegate" destination="IH5-GN-mHr" id="LLw-W2-44W"/>
+                                        </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qHd-mu-0JF">
                                         <rect key="frame" x="0.0" y="129" width="354" height="30"/>
@@ -127,10 +168,13 @@
                                             <constraint firstAttribute="height" constant="30" id="Yna-Ro-BCv"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqY-0e-4Vv">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqY-0e-4Vv">
                                         <rect key="frame" x="0.0" y="164" width="354" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Log in"/>
+                                        <connections>
+                                            <action selector="loginAction" destination="IH5-GN-mHr" eventType="touchUpInside" id="Z31-xI-lVK"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -139,7 +183,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="No account? Sign up!"/>
                                 <connections>
-                                    <segue destination="Y6W-OH-hqX" kind="show" id="t6d-dX-9AD"/>
+                                    <segue destination="Y6W-OH-hqX" kind="showDetail" id="t6d-dX-9AD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -154,14 +198,23 @@
                             <constraint firstItem="umH-F6-k8K" firstAttribute="trailing" secondItem="2qj-nA-jpR" secondAttribute="trailing" constant="30" id="qOd-Gx-xc4"/>
                             <constraint firstItem="umH-F6-k8K" firstAttribute="trailing" secondItem="lQF-ev-OTk" secondAttribute="trailing" constant="30" id="u2j-vk-dZ1"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Qru-St-9SQ" appends="YES" id="E5U-Mk-t9Q"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="9fg-1m-muU"/>
                     <connections>
                         <outlet property="emailTextField" destination="LwH-VB-ypp" id="nA9-oS-cPa"/>
+                        <outlet property="loginButton" destination="IqY-0e-4Vv" id="Fyn-Jn-Ls2"/>
                         <outlet property="passwordTextField" destination="LXr-Dz-RAb" id="zxo-gB-YA0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DY8-6D-2jo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Qru-St-9SQ">
+                    <connections>
+                        <action selector="endEditing" destination="IH5-GN-mHr" id="TQi-ls-UNA"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1258" y="23"/>
         </scene>

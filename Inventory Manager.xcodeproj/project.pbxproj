@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67F5D3F5DAEF62FC5F3D3DDC /* Pods_Inventory_Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B901DD781FE63C73A2BC2FD4 /* Pods_Inventory_Manager.framework */; };
 		B22C75572334DA94003BD0AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B22C75562334DA94003BD0AA /* GoogleService-Info.plist */; };
 		B22C75592334DEF3003BD0AA /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C75582334DEF3003BD0AA /* DatabaseService.swift */; };
 		B22C755B2334E16D003BD0AA /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C755A2334E16D003BD0AA /* InventoryItem.swift */; };
 		B22C755D2334F7E2003BD0AA /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C755C2334F7E2003BD0AA /* Shelf.swift */; };
 		B23E14172334D7B500C64A8A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E14162334D7B500C64A8A /* AppCoordinator.swift */; };
 		B254E3182332936700C8323C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B254E3172332936700C8323C /* AppDelegate.swift */; };
-		B254E31A2332936700C8323C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B254E3192332936700C8323C /* ViewController.swift */; };
 		B254E31D2332936700C8323C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B254E31B2332936700C8323C /* Main.storyboard */; };
 		B254E31F2332936900C8323C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B254E31E2332936900C8323C /* Assets.xcassets */; };
 		B254E3222332936900C8323C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B254E3202332936900C8323C /* LaunchScreen.storyboard */; };
@@ -23,6 +23,12 @@
 		D35E896C28006DA80076CC0D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35E896B28006DA80076CC0D /* Login.storyboard */; };
 		D35E896E2800795E0076CC0D /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E896D2800795E0076CC0D /* MainRouter.swift */; };
 		D35E897028007A390076CC0D /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E896F28007A390076CC0D /* OnboardingViewController.swift */; };
+		D35E8972280089C40076CC0D /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E8971280089C40076CC0D /* String+Extensions.swift */; };
+		D35E897428008B830076CC0D /* UIViewController+messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E897328008B830076CC0D /* UIViewController+messages.swift */; };
+		D35E8976280175450076CC0D /* WireFrames.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E8975280175450076CC0D /* WireFrames.swift */; };
+		D35E897928017CE10076CC0D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E897828017CE10076CC0D /* MainViewController.swift */; };
+		D35E897C2801A09F0076CC0D /* CodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E897B2801A09F0076CC0D /* CodeScanner.swift */; };
+		E1842C0CE3446778A0B15CCD /* Pods_Inventory_ManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6080C0DAFEC10079285F585 /* Pods_Inventory_ManagerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0018A288FF70F48C88FA55F7 /* Pods-Inventory ManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inventory ManagerTests.release.xcconfig"; path = "Target Support Files/Pods-Inventory ManagerTests/Pods-Inventory ManagerTests.release.xcconfig"; sourceTree = "<group>"; };
+		1AF824FEC9FA715CB5A7A4E4 /* Pods-Inventory Manager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inventory Manager.release.xcconfig"; path = "Target Support Files/Pods-Inventory Manager/Pods-Inventory Manager.release.xcconfig"; sourceTree = "<group>"; };
+		4B39EA39203832FAC6F695EE /* Pods-Inventory ManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inventory ManagerTests.debug.xcconfig"; path = "Target Support Files/Pods-Inventory ManagerTests/Pods-Inventory ManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AC4A00786CF9D3FC6374AD3B /* Pods-Inventory Manager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inventory Manager.debug.xcconfig"; path = "Target Support Files/Pods-Inventory Manager/Pods-Inventory Manager.debug.xcconfig"; sourceTree = "<group>"; };
 		B22C75562334DA94003BD0AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B22C75582334DEF3003BD0AA /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		B22C755A2334E16D003BD0AA /* InventoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
@@ -44,7 +54,6 @@
 		B24B926225AF6C0A007677A5 /* Inventory Manager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Inventory Manager.entitlements"; sourceTree = "<group>"; };
 		B254E3142332936700C8323C /* Inventory Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Inventory Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B254E3172332936700C8323C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B254E3192332936700C8323C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B254E31C2332936700C8323C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B254E31E2332936900C8323C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B254E3212332936900C8323C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,11 +61,18 @@
 		B254E3282332936900C8323C /* Inventory ManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Inventory ManagerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B254E32C2332936900C8323C /* Inventory_ManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory_ManagerTests.swift; sourceTree = "<group>"; };
 		B254E32E2332936900C8323C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B901DD781FE63C73A2BC2FD4 /* Pods_Inventory_Manager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Inventory_Manager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35E896728006D300076CC0D /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D35E896928006D6A0076CC0D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D35E896B28006DA80076CC0D /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		D35E896D2800795E0076CC0D /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		D35E896F28007A390076CC0D /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		D35E8971280089C40076CC0D /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		D35E897328008B830076CC0D /* UIViewController+messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+messages.swift"; sourceTree = "<group>"; };
+		D35E8975280175450076CC0D /* WireFrames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireFrames.swift; sourceTree = "<group>"; };
+		D35E897828017CE10076CC0D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D35E897B2801A09F0076CC0D /* CodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeScanner.swift; sourceTree = "<group>"; };
+		D6080C0DAFEC10079285F585 /* Pods_Inventory_ManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Inventory_ManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67F5D3F5DAEF62FC5F3D3DDC /* Pods_Inventory_Manager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,18 +88,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1842C0CE3446778A0B15CCD /* Pods_Inventory_ManagerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		032D032D3EB3D13508A8DDB5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC4A00786CF9D3FC6374AD3B /* Pods-Inventory Manager.debug.xcconfig */,
+				1AF824FEC9FA715CB5A7A4E4 /* Pods-Inventory Manager.release.xcconfig */,
+				4B39EA39203832FAC6F695EE /* Pods-Inventory ManagerTests.debug.xcconfig */,
+				0018A288FF70F48C88FA55F7 /* Pods-Inventory ManagerTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		264FE385BCCDFF8397B42C83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B901DD781FE63C73A2BC2FD4 /* Pods_Inventory_Manager.framework */,
+				D6080C0DAFEC10079285F585 /* Pods_Inventory_ManagerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B23E14122334D4E800C64A8A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D35E897728017CCE0076CC0D /* Main */,
 				D35E896628006CF10076CC0D /* Login */,
 				B254E31B2332936700C8323C /* Main.storyboard */,
-				B254E3192332936700C8323C /* ViewController.swift */,
 				D35E896F28007A390076CC0D /* OnboardingViewController.swift */,
 			);
 			path = Controllers;
@@ -103,6 +141,9 @@
 				B254E31E2332936900C8323C /* Assets.xcassets */,
 				B254E3172332936700C8323C /* AppDelegate.swift */,
 				B23E14162334D7B500C64A8A /* AppCoordinator.swift */,
+				D35E8971280089C40076CC0D /* String+Extensions.swift */,
+				D35E897328008B830076CC0D /* UIViewController+messages.swift */,
+				D35E8975280175450076CC0D /* WireFrames.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -110,6 +151,7 @@
 		B23E14182334D7BE00C64A8A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				D35E897B2801A09F0076CC0D /* CodeScanner.swift */,
 				B22C75582334DEF3003BD0AA /* DatabaseService.swift */,
 			);
 			path = Services;
@@ -118,10 +160,11 @@
 		B254E30B2332936700C8323C = {
 			isa = PBXGroup;
 			children = (
-				B24B926225AF6C0A007677A5 /* Inventory Manager.entitlements */,
 				B254E3162332936700C8323C /* Inventory Manager */,
 				B254E32B2332936900C8323C /* Inventory ManagerTests */,
 				B254E3152332936700C8323C /* Products */,
+				032D032D3EB3D13508A8DDB5 /* Pods */,
+				264FE385BCCDFF8397B42C83 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,7 +180,7 @@
 		B254E3162332936700C8323C /* Inventory Manager */ = {
 			isa = PBXGroup;
 			children = (
-				D35E896528006ADD0076CC0D /* CommonViews */,
+				B24B926225AF6C0A007677A5 /* Inventory Manager.entitlements */,
 				B23E14122334D4E800C64A8A /* Controllers */,
 				B23E14132334D4F500C64A8A /* Models */,
 				B23E14182334D7BE00C64A8A /* Services */,
@@ -159,13 +202,6 @@
 			path = "Inventory ManagerTests";
 			sourceTree = "<group>";
 		};
-		D35E896528006ADD0076CC0D /* CommonViews */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CommonViews;
-			sourceTree = "<group>";
-		};
 		D35E896628006CF10076CC0D /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +212,14 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		D35E897728017CCE0076CC0D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D35E897828017CE10076CC0D /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -183,9 +227,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B254E3312332936900C8323C /* Build configuration list for PBXNativeTarget "Inventory Manager" */;
 			buildPhases = (
+				67C0E75D9B37DB6E49D2A7CC /* [CP] Check Pods Manifest.lock */,
 				B254E3102332936700C8323C /* Sources */,
 				B254E3112332936700C8323C /* Frameworks */,
 				B254E3122332936700C8323C /* Resources */,
+				EAF8FF90E13086C3BA84E984 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -200,6 +246,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B254E3342332936900C8323C /* Build configuration list for PBXNativeTarget "Inventory ManagerTests" */;
 			buildPhases = (
+				2C4854D120FB66D8261BB898 /* [CP] Check Pods Manifest.lock */,
 				B254E3242332936900C8323C /* Sources */,
 				B254E3252332936900C8323C /* Frameworks */,
 				B254E3262332936900C8323C /* Resources */,
@@ -274,18 +321,86 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C4854D120FB66D8261BB898 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Inventory ManagerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67C0E75D9B37DB6E49D2A7CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Inventory Manager-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAF8FF90E13086C3BA84E984 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Inventory Manager/Pods-Inventory Manager-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Inventory Manager/Pods-Inventory Manager-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Inventory Manager/Pods-Inventory Manager-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B254E3102332936700C8323C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D35E896828006D300076CC0D /* SignInViewController.swift in Sources */,
+				D35E897C2801A09F0076CC0D /* CodeScanner.swift in Sources */,
+				D35E897928017CE10076CC0D /* MainViewController.swift in Sources */,
+				D35E8972280089C40076CC0D /* String+Extensions.swift in Sources */,
+				D35E897428008B830076CC0D /* UIViewController+messages.swift in Sources */,
 				B22C755D2334F7E2003BD0AA /* Shelf.swift in Sources */,
 				D35E896A28006D6A0076CC0D /* SignUpViewController.swift in Sources */,
 				B22C755B2334E16D003BD0AA /* InventoryItem.swift in Sources */,
 				B23E14172334D7B500C64A8A /* AppCoordinator.swift in Sources */,
-				B254E31A2332936700C8323C /* ViewController.swift in Sources */,
 				B22C75592334DEF3003BD0AA /* DatabaseService.swift in Sources */,
+				D35E8976280175450076CC0D /* WireFrames.swift in Sources */,
 				D35E897028007A390076CC0D /* OnboardingViewController.swift in Sources */,
 				B254E3182332936700C8323C /* AppDelegate.swift in Sources */,
 				D35E896E2800795E0076CC0D /* MainRouter.swift in Sources */,
@@ -448,6 +563,7 @@
 		};
 		B254E3322332936900C8323C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC4A00786CF9D3FC6374AD3B /* Pods-Inventory Manager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Inventory Manager/Inventory Manager.entitlements";
@@ -468,6 +584,7 @@
 		};
 		B254E3332332936900C8323C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AF824FEC9FA715CB5A7A4E4 /* Pods-Inventory Manager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Inventory Manager/Inventory Manager.entitlements";
@@ -488,6 +605,7 @@
 		};
 		B254E3352332936900C8323C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B39EA39203832FAC6F695EE /* Pods-Inventory ManagerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -509,6 +627,7 @@
 		};
 		B254E3362332936900C8323C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0018A288FF70F48C88FA55F7 /* Pods-Inventory ManagerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

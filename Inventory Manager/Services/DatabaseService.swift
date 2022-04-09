@@ -10,42 +10,70 @@ import Foundation
 import FirebaseDatabase
 
 protocol DatabaseService {
-    func getItemsWithBarcode(_ barcode: String) -> [InventoryItem]
-    func getShelfsWithBarcode(_ barcode: String) -> [Shelf]
-    func addInventoryItem(_ item: InventoryItem)
-    func addShelf(_ shelf: Shelf)
+    func getItemsWithCode( code: String) -> [InventoryItem]
+    func getShelfsWithCode( code: String) -> [Shelf]
+    func addInventoryItem( item: InventoryItem)
+    func addShelf( shelf: Shelf)
 }
-///!@#$  na szybko uzupełnione żeby odpalić,  poprawić tę funkcję
-struct DatabaseServiceImp: DatabaseService {
-    func getItemsWithBarcode(_ barcode: String) -> [InventoryItem] {
-        let child =  dbReference.child("Items")
-        guard
-            let id = child.key,
-            let name = child.value(forKey: "name") as? String,
-            let shelfID = child.value(forKey: "shelfID") as? String
-            else { return [] }
-        
-        let item = InventoryItem(
-            id: barcode,
-            code: child.value(forKey: "code") as? String,
-            name: name,
-            shelfID: shelfID,
-            description: child.value(forKey: "description") as? String
-        )
-        return [item]
+
+class DatabaseServiceImp: DatabaseService {
+    
+    private let database = Database.database()
+    private let uid: String!
+    private let encoder = JSONEncoder()
+    
+    init(uid: String) {
+        database.isPersistenceEnabled = true
+        self.uid = uid
     }
     
-    func addInventoryItem(_ item: InventoryItem) {
-    }
+    private lazy var itemsRef: DatabaseReference = {
+            return database.reference()
+            .child("\(String(describing: uid))/items")
+    }()
     
-    func addShelf(_ shelf: Shelf) {
-        
-    }
+//    func getItemsWithBarcode(_ barcode: String) -> [InventoryItem] {
+//        let child =  dbReference.child("Items")
+//        guard
+//            let id = child.key,
+//            let name = child.value(forKey: "name") as? String,
+//            let shelfID = child.value(forKey: "shelfID") as? String
+//            else { return [] }
+//
+//        let item = InventoryItem(
+//            id: barcode,
+//            code: child.value(forKey: "code") as? String,
+//            name: name,
+//            shelfID: shelfID,
+//            description: child.value(forKey: "description") as? String
+//        )
+//        return [item]
+//    }
     
-    func getShelfsWithBarcode(_ barcode: String) -> [Shelf] {
+    func getItemsWithCode(barcode: String) -> [InventoryItem] {
         return []
     }
     
-    private var dbReference = Database.database().reference()
+    
+    // TODO: obsłużyć error
+    func addInventoryItem(item: InventoryItem) {
+        do {
+          let data = try encoder.encode(thought)
+          let json = try JSONSerialization.jsonObject(with: data)
+          databasePath.childByAutoId()
+            .setValue(json)
+        } catch {
+          print("an error occurred", error)
+        }
+    }
+    
+    func addShelf(shelf: Shelf) {
+        
+    }
+    
+    func getShelfsWithCode(code: String) -> [Shelf] {
+        return []
+    }
+    
     
 }

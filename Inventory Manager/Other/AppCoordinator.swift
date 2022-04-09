@@ -6,8 +6,27 @@
 //  Copyright © 2019 A. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import Firebase
 
-struct AppCoordinator {
+class AppCoordinator {
+    private let mainNavigationController: UINavigationController!
+    
+    init(mainNavigationController: UINavigationController) {
+        self.mainNavigationController = mainNavigationController
+        addLoginStateListener()
+    }
+    
+    func addLoginStateListener() {
+        Auth.auth().addStateDidChangeListener { [weak self] auth, user in
+            var newFlowViewController: UIViewController
+            if user != nil {
+                newFlowViewController = WireFrames.getMainViewController()
+            } else {
+                newFlowViewController = WireFrames.getSignInViewController()
+            }
+            self?.mainNavigationController.setViewControllers([newFlowViewController], animated: true)
+        }
+    }
     
 }

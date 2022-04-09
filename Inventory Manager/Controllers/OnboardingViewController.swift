@@ -7,16 +7,13 @@
 //
 
 import UIKit
-import FirebaseCore
 
 class OnboardingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        FirebaseCore.aut
-//        Auth.auth().addStateDidChangeListener { auth, user in
-//        }
+        
     }
     
 
