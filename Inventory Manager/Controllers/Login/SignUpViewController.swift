@@ -45,13 +45,9 @@ class SignUpViewController: UIViewController {
                     self?.showMessage(message: error.localizedDescription)
                     return
                 }
-              print(authResult)
+            print(authResult as Any)
         }
 
-    }
-    
-    @IBAction func endEditing() {
-        view.endEditing(true)
     }
 }
 
@@ -66,7 +62,6 @@ extension SignUpViewController: UITextFieldDelegate {
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        print(textField.text)
         signUpButton.isEnabled = emailTextField.text.isNotEmpty() && passwordTextField.text.isNotEmpty() && confirmPasswordTextField.text.isNotEmpty()
     }
     

@@ -36,12 +36,7 @@ class SignInViewController: UIViewController {
                 self?.showMessage(message: error.localizedDescription)
                 return
             }
-          print(authResult)
         }
-    }
-    
-    @IBAction func endEditing() {
-        view.endEditing(true)
     }
 }
 
@@ -52,7 +47,6 @@ extension SignInViewController: UITextFieldDelegate {
 //    }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        print(textField.text)
         loginButton.isEnabled = emailTextField.text.isNotEmpty() && passwordTextField.text.isNotEmpty()
     }
 }

@@ -11,6 +11,7 @@ import AVFoundation
 
 class MainViewController: UIViewController {
     @IBOutlet private var scannerView: UIView!
+    private var scannedItem: InventoryItem?
     private var scanner: Scanner?
 
     override func viewDidLoad() {
@@ -32,6 +33,33 @@ class MainViewController: UIViewController {
         scanner?.layoutPreviewLayer()
     }
 
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard let item = scannedItem,
+              let itemDetailsVC = segue.destination as? ItemDetailsViewController
+        else { return }
+        itemDetailsVC.item = item
+    }
+}
+
+private extension MainViewController {
+    private func showItemWithCode(code: String) {
+        Dependencies.databaseService.searchItemsWithCode(code: code) { [weak self] result in
+            switch  result {
+            case .success(let items):
+                guard  let item = items?.first else {
+                    self?.showMessage(message: "Item not found.\n Code: \(code)")
+                    return
+                }
+                self?.scannedItem = item
+                self?.performSegue(withIdentifier: "ItemDetails", sender: nil)
+                //self?.scanner?.requestCaptureSessionStartRunning()
+            case .error(let error):
+                self?.showMessage(message: error.localizedDescription)
+            }
+        }
+    }
 }
 
 extension MainViewController: ScannerDelegate {
@@ -40,8 +68,8 @@ extension MainViewController: ScannerDelegate {
     }
     
     func scanCompleted(withCode code: String) {
-        showMessage(message: "code: \(code)")
-        
+        showItemWithCode(code: code)
+        UIPasteboard.general.string = code
         scanner?.requestCaptureSessionStartRunning()
     }
     

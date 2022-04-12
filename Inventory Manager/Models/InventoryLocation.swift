@@ -9,9 +9,9 @@
 
 import Foundation
 
-struct Shelf {
+struct InventoryLocation: Identifiable, Codable {
     let id: String
     let code: String
-    let place: String
-    let description: String
+    let place: String?
+    let description: String?
 }

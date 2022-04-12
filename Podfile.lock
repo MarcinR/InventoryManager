@@ -107,6 +107,7 @@ PODS:
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.7.1)
   - leveldb-library (1.22.1)
+  - MBProgressHUD (1.2.0)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
@@ -119,6 +120,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Crashlytics
   - Firebase/Database
+  - MBProgressHUD
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -135,6 +137,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - leveldb-library
+    - MBProgressHUD
     - nanopb
     - PromisesObjC
 
@@ -152,9 +155,10 @@ SPEC CHECKSUMS:
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   GTMSessionFetcher: 4577a4cc914a5a07c40a8a0ad0acc22080418c2d
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-PODFILE CHECKSUM: 936be2356445b024970e6df4f116c4e7715182b7
+PODFILE CHECKSUM: 525a5a9422e26d57efe566aebc17ed08029d25dd
 
 COCOAPODS: 1.11.3

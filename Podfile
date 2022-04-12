@@ -10,6 +10,8 @@ target 'Inventory Manager' do
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Auth'  
 
+  pod 'MBProgressHUD'
+  
   target 'Inventory ManagerTests' do
     inherit! :search_paths
     # Pods for testing

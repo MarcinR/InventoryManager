@@ -11,13 +11,14 @@
 		B22C75572334DA94003BD0AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B22C75562334DA94003BD0AA /* GoogleService-Info.plist */; };
 		B22C75592334DEF3003BD0AA /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C75582334DEF3003BD0AA /* DatabaseService.swift */; };
 		B22C755B2334E16D003BD0AA /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C755A2334E16D003BD0AA /* InventoryItem.swift */; };
-		B22C755D2334F7E2003BD0AA /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C755C2334F7E2003BD0AA /* Shelf.swift */; };
+		B22C755D2334F7E2003BD0AA /* InventoryLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C755C2334F7E2003BD0AA /* InventoryLocation.swift */; };
 		B23E14172334D7B500C64A8A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E14162334D7B500C64A8A /* AppCoordinator.swift */; };
 		B254E3182332936700C8323C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B254E3172332936700C8323C /* AppDelegate.swift */; };
 		B254E31D2332936700C8323C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B254E31B2332936700C8323C /* Main.storyboard */; };
 		B254E31F2332936900C8323C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B254E31E2332936900C8323C /* Assets.xcassets */; };
 		B254E3222332936900C8323C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B254E3202332936900C8323C /* LaunchScreen.storyboard */; };
 		B254E32D2332936900C8323C /* Inventory_ManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B254E32C2332936900C8323C /* Inventory_ManagerTests.swift */; };
+		D31F89EC2801DE3C00147A9F /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31F89EB2801DE3C00147A9F /* AddItemViewController.swift */; };
 		D35E896828006D300076CC0D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E896728006D300076CC0D /* SignInViewController.swift */; };
 		D35E896A28006D6A0076CC0D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E896928006D6A0076CC0D /* SignUpViewController.swift */; };
 		D35E896C28006DA80076CC0D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35E896B28006DA80076CC0D /* Login.storyboard */; };
@@ -28,6 +29,8 @@
 		D35E8976280175450076CC0D /* WireFrames.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E8975280175450076CC0D /* WireFrames.swift */; };
 		D35E897928017CE10076CC0D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E897828017CE10076CC0D /* MainViewController.swift */; };
 		D35E897C2801A09F0076CC0D /* CodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E897B2801A09F0076CC0D /* CodeScanner.swift */; };
+		D3791BD52801F64B0042BEBD /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3791BD42801F64B0042BEBD /* AppDependencies.swift */; };
+		D3791BD82802F6760042BEBD /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3791BD72802F6760042BEBD /* ItemDetailsViewController.swift */; };
 		E1842C0CE3446778A0B15CCD /* Pods_Inventory_ManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6080C0DAFEC10079285F585 /* Pods_Inventory_ManagerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +52,7 @@
 		B22C75562334DA94003BD0AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B22C75582334DEF3003BD0AA /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		B22C755A2334E16D003BD0AA /* InventoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
-		B22C755C2334F7E2003BD0AA /* Shelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shelf.swift; sourceTree = "<group>"; };
+		B22C755C2334F7E2003BD0AA /* InventoryLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryLocation.swift; sourceTree = "<group>"; };
 		B23E14162334D7B500C64A8A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B24B926225AF6C0A007677A5 /* Inventory Manager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Inventory Manager.entitlements"; sourceTree = "<group>"; };
 		B254E3142332936700C8323C /* Inventory Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Inventory Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +65,7 @@
 		B254E32C2332936900C8323C /* Inventory_ManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory_ManagerTests.swift; sourceTree = "<group>"; };
 		B254E32E2332936900C8323C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B901DD781FE63C73A2BC2FD4 /* Pods_Inventory_Manager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Inventory_Manager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D31F89EB2801DE3C00147A9F /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		D35E896728006D300076CC0D /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D35E896928006D6A0076CC0D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D35E896B28006DA80076CC0D /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 		D35E8975280175450076CC0D /* WireFrames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireFrames.swift; sourceTree = "<group>"; };
 		D35E897828017CE10076CC0D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D35E897B2801A09F0076CC0D /* CodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeScanner.swift; sourceTree = "<group>"; };
+		D3791BD42801F64B0042BEBD /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
+		D3791BD72802F6760042BEBD /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
 		D6080C0DAFEC10079285F585 /* Pods_Inventory_ManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Inventory_ManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -118,6 +124,8 @@
 		B23E14122334D4E800C64A8A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D3791BD62802F6400042BEBD /* ItemDetails */,
+				D31F89EA2801DE2700147A9F /* AddItem */,
 				D35E897728017CCE0076CC0D /* Main */,
 				D35E896628006CF10076CC0D /* Login */,
 				B254E31B2332936700C8323C /* Main.storyboard */,
@@ -130,7 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				B22C755A2334E16D003BD0AA /* InventoryItem.swift */,
-				B22C755C2334F7E2003BD0AA /* Shelf.swift */,
+				B22C755C2334F7E2003BD0AA /* InventoryLocation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -144,6 +152,7 @@
 				D35E8971280089C40076CC0D /* String+Extensions.swift */,
 				D35E897328008B830076CC0D /* UIViewController+messages.swift */,
 				D35E8975280175450076CC0D /* WireFrames.swift */,
+				D3791BD42801F64B0042BEBD /* AppDependencies.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -202,6 +211,14 @@
 			path = "Inventory ManagerTests";
 			sourceTree = "<group>";
 		};
+		D31F89EA2801DE2700147A9F /* AddItem */ = {
+			isa = PBXGroup;
+			children = (
+				D31F89EB2801DE3C00147A9F /* AddItemViewController.swift */,
+			);
+			path = AddItem;
+			sourceTree = "<group>";
+		};
 		D35E896628006CF10076CC0D /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +235,14 @@
 				D35E897828017CE10076CC0D /* MainViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		D3791BD62802F6400042BEBD /* ItemDetails */ = {
+			isa = PBXGroup;
+			children = (
+				D3791BD72802F6760042BEBD /* ItemDetailsViewController.swift */,
+			);
+			path = ItemDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +293,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1030;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = A;
 				TargetAttributes = {
 					B254E3132332936700C8323C = {
@@ -390,12 +415,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3791BD82802F6760042BEBD /* ItemDetailsViewController.swift in Sources */,
 				D35E896828006D300076CC0D /* SignInViewController.swift in Sources */,
 				D35E897C2801A09F0076CC0D /* CodeScanner.swift in Sources */,
 				D35E897928017CE10076CC0D /* MainViewController.swift in Sources */,
 				D35E8972280089C40076CC0D /* String+Extensions.swift in Sources */,
+				D3791BD52801F64B0042BEBD /* AppDependencies.swift in Sources */,
 				D35E897428008B830076CC0D /* UIViewController+messages.swift in Sources */,
-				B22C755D2334F7E2003BD0AA /* Shelf.swift in Sources */,
+				D31F89EC2801DE3C00147A9F /* AddItemViewController.swift in Sources */,
+				B22C755D2334F7E2003BD0AA /* InventoryLocation.swift in Sources */,
 				D35E896A28006D6A0076CC0D /* SignUpViewController.swift in Sources */,
 				B22C755B2334E16D003BD0AA /* InventoryItem.swift in Sources */,
 				B23E14172334D7B500C64A8A /* AppCoordinator.swift in Sources */,
@@ -471,6 +499,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -532,6 +561,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

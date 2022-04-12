@@ -14,4 +14,10 @@ extension UIViewController {
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
+    
+    
+    
+    @IBAction func endEditing() {
+        view.endEditing(true)
+    }
 }

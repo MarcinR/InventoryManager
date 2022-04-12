@@ -9,9 +9,9 @@
 import Foundation
 
 struct InventoryItem: Identifiable, Codable {
-    let id: String
-    let code: String?
+    let id: String?
+    let code: String
     let name: String
-    let shelfID: String
+    let shelfID: String?
     let description: String?
 }

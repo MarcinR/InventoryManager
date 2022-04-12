@@ -9,70 +9,96 @@
 import Foundation
 import FirebaseDatabase
 
+enum DatabaseActionResult {
+    case success([InventoryItem]?)
+    case error(Error)
+}
+
 protocol DatabaseService {
-    func getItemsWithCode( code: String) -> [InventoryItem]
-    func getShelfsWithCode( code: String) -> [Shelf]
-    func addInventoryItem( item: InventoryItem)
-    func addShelf( shelf: Shelf)
+    func searchItemsWithCode( code: String, completion: @escaping (DatabaseActionResult)->())
+    func searchLocationsWithCode( code: String, completion: @escaping (DatabaseActionResult)->())
+    func addInventoryItem( item: InventoryItem, completion: @escaping (DatabaseActionResult)->())
+    func addLocation( location: InventoryLocation, completion: @escaping (DatabaseActionResult)->())
 }
 
 class DatabaseServiceImp: DatabaseService {
-    
+    private let CodeDBKey = "code"
     private let database = Database.database()
     private let uid: String!
     private let encoder = JSONEncoder()
+    private let decoder = JSONDecoder()
     
     init(uid: String) {
-        database.isPersistenceEnabled = true
         self.uid = uid
     }
     
     private lazy var itemsRef: DatabaseReference = {
             return database.reference()
-            .child("\(String(describing: uid))/items")
+            .child(uid + "/items")
     }()
     
-//    func getItemsWithBarcode(_ barcode: String) -> [InventoryItem] {
-//        let child =  dbReference.child("Items")
-//        guard
-//            let id = child.key,
-//            let name = child.value(forKey: "name") as? String,
-//            let shelfID = child.value(forKey: "shelfID") as? String
-//            else { return [] }
-//
-//        let item = InventoryItem(
-//            id: barcode,
-//            code: child.value(forKey: "code") as? String,
-//            name: name,
-//            shelfID: shelfID,
-//            description: child.value(forKey: "description") as? String
-//        )
-//        return [item]
-//    }
-    
-    func getItemsWithCode(barcode: String) -> [InventoryItem] {
-        return []
-    }
+    private lazy var locationsRef: DatabaseReference = {
+            return database.reference()
+            .child(uid + "/locations")
+    }()
     
     
-    // TODO: obsłużyć error
-    func addInventoryItem(item: InventoryItem) {
+    func addInventoryItem(item: InventoryItem, completion: @escaping (DatabaseActionResult)->()) {
         do {
-          let data = try encoder.encode(thought)
+          let data = try encoder.encode(item)
           let json = try JSONSerialization.jsonObject(with: data)
-          databasePath.childByAutoId()
-            .setValue(json)
+          itemsRef.childByAutoId().setValue(json)
+            completion(.success(nil))
         } catch {
-          print("an error occurred", error)
+            completion(.error(error))
+        }
+    }
+    func addLocation(location: InventoryLocation, completion: @escaping (DatabaseActionResult) -> ()) {
+        do {
+            let data = try encoder.encode(location)
+            let json = try JSONSerialization.jsonObject(with: data)
+            itemsRef.childByAutoId().setValue(json)
+            completion(.success(nil))
+        } catch {
+            completion(.error(error))
         }
     }
     
-    func addShelf(shelf: Shelf) {
-        
+    func searchItemsWithCode( code: String,  completion: @escaping (DatabaseActionResult)->()) {
+        itemsRef.queryOrdered(byChild: CodeDBKey).queryEqual(toValue: code).observeSingleEvent(of: .value) { snapshot in
+            var items: [InventoryItem] = []
+            for child in snapshot.children {
+                print(child)
+                do {
+                    let childSnapshot = child as! DataSnapshot
+                    let data = try JSONSerialization.data(withJSONObject: childSnapshot.value!)
+                    let item = try self.decoder.decode(InventoryItem.self, from: data)
+                    items.append(item)
+                } catch {
+                    print("an error occurred", error)
+                }
+            }
+            completion(.success(items))
+        }
     }
     
-    func getShelfsWithCode(code: String) -> [Shelf] {
-        return []
+    
+    func searchLocationsWithCode( code: String, completion: @escaping (DatabaseActionResult)->()) {
+        locationsRef.queryOrdered(byChild: CodeDBKey).queryEqual(toValue: code).observeSingleEvent(of: .value) { snapshot in
+            var locations: [InventoryLocation] = []
+            for child in snapshot.children {
+                print(child)
+                do {
+                     let childSnapshot = child as! DataSnapshot
+                    let data = try JSONSerialization.data(withJSONObject: childSnapshot.value!)
+                    let item = try self.decoder.decode(InventoryLocation.self, from: data)
+                    locations.append(item)
+                } catch {
+                    print("an error occurred", error)
+                }
+            }
+            completion(.success([]))
+        }
     }
     
     

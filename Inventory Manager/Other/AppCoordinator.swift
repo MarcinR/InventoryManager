@@ -20,7 +20,8 @@ class AppCoordinator {
     func addLoginStateListener() {
         Auth.auth().addStateDidChangeListener { [weak self] auth, user in
             var newFlowViewController: UIViewController
-            if user != nil {
+            if user != nil, let uid = auth.currentUser?.uid {
+                Dependencies = AppDependencies(uid: uid)
                 newFlowViewController = WireFrames.getMainViewController()
             } else {
                 newFlowViewController = WireFrames.getSignInViewController()
