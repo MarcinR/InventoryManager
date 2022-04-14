@@ -14,4 +14,5 @@ struct InventoryItem: Identifiable, Codable {
     let name: String
     let shelfID: String?
     let description: String?
+    let isLocation: Bool?
 }

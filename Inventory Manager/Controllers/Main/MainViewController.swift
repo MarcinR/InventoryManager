@@ -13,10 +13,10 @@ class MainViewController: UIViewController {
     @IBOutlet private var scannerView: UIView!
     private var scannedItem: InventoryItem?
     private var scanner: Scanner?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.scanner = Scanner(withDelegate: self)
+        self.scanner = Scanner(withCameraView: scannerView, delegate: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -30,9 +30,9 @@ class MainViewController: UIViewController {
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        scanner?.layoutPreviewLayer()
+        scanner?.layoutPreviewLayerToContainerBouds(containerBounds: scannerView.bounds)
     }
-
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -41,15 +41,26 @@ class MainViewController: UIViewController {
         else { return }
         itemDetailsVC.item = item
     }
+    
+    @IBAction func didTapAddItem() {
+        navigationController?.pushViewController(WireFrames.getAddItemViewController(), animated: true)
+    }
+    
+    @IBAction func didTapAddLocation() {
+        navigationController?.pushViewController(WireFrames.getAddLocationViewController(), animated: true)
+    }
+    
+    
 }
 
 private extension MainViewController {
-    private func showItemWithCode(code: String) {
+    func showItemWithCode(code: String) {
         Dependencies.databaseService.searchItemsWithCode(code: code) { [weak self] result in
             switch  result {
             case .success(let items):
                 guard  let item = items?.first else {
-                    self?.showMessage(message: "Item not found.\n Code: \(code)")
+//                    self?.showMessage(message: "Item not found.\n Code: \(code)")
+                    self?.showDetailsForCode(code: code)
                     return
                 }
                 self?.scannedItem = item
@@ -60,31 +71,26 @@ private extension MainViewController {
             }
         }
     }
+    
+    func showDetailsForCode(code: String) {
+        Dependencies.barcodeDetailsService.getDetailsForBarcode(barcode: code) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let details):
+                    self?.showMessage(message: details.description ?? "No details")
+                    return
+                case .error(let error):
+                    self?.showMessage(message: error.localizedDescription)
+                }
+            }
+        }
+    }
 }
 
-extension MainViewController: ScannerDelegate {
-    func cameraView() -> UIView {
-        return scannerView
-    }
-    
+extension MainViewController: ScannerResultDelegate {
     func scanCompleted(withCode code: String) {
         showItemWithCode(code: code)
         UIPasteboard.general.string = code
         scanner?.requestCaptureSessionStartRunning()
     }
-    
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        print("metadataObj:::")
-        print(metadataObjects)
-        print("metaOutput:::")
-        print(output)
-        guard let scanner = self.scanner else {
-                  return
-              }
-              scanner.metadataOutput(output,
-                                     didOutput: metadataObjects,
-                                     from: connection)
-    }
-    
-    
 }

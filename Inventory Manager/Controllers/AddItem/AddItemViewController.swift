@@ -7,18 +7,28 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class AddItemViewController: UITableViewController {
-     @IBOutlet private var nameTextField: UITextField!
+    @IBOutlet private var nameTextField: UITextField!
     @IBOutlet private var codeTextField: UITextField!
     @IBOutlet private var locationTextField: UITextField!
     @IBOutlet private var descriptionTextField: UITextField!
-//    @IBOutlet private var TextField: UITextField!
-
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var locationLabel: UILabel!
+    
+    var createLocationMode = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if (createLocationMode) {
+            titleLabel.text = "Add Location"
+            locationLabel.text = "Parent location ID (optional)"
+        }
+        tableView.rowHeight =  UITableView.automaticDimension
+        tableView.estimatedRowHeight = 80.0
+        
     }
     
     @IBAction func createItem() {
@@ -31,18 +41,27 @@ class AddItemViewController: UITableViewController {
                                  code: code,
                                  name: name,
                                  shelfID: locationTextField.text,
-                                 description: descriptionTextField.text)
-        
+                                 description: descriptionTextField.text,
+                                 isLocation: createLocationMode)
+        MBProgressHUD.showAdded(to: view, animated: true)
         Dependencies.databaseService.addInventoryItem(item: item) { [weak self] result in
+            guard let strongSelf = self else { return }
+            MBProgressHUD.hide(for: strongSelf.view, animated: true)
             switch result {
-                
             case .success(_):
-                self?.navigationController?.popViewController(animated: true)
-//                self?.showMessage(message: "Item successfuly added.")
+                strongSelf.navigationController?.popViewController(animated: true)
             case .error(let error):
-                self?.showMessage(message: error.localizedDescription)
+                strongSelf.showMessage(message: error.localizedDescription)
             }
         }
     }
-    
+}
+
+extension AddItemViewController: ScannerTriggeringDelegate {
+    func triggerScanning(withComplition complition: ((String) -> Void)?) {
+        self.definesPresentationContext = true
+        let scannerViewController = WireFrames.getScannerViewController(withComplition: complition)
+        scannerViewController.modalPresentationStyle = .overCurrentContext
+        present(scannerViewController, animated: true, completion: nil)
+    }
 }

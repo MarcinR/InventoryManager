@@ -11,13 +11,16 @@
 		B22C75572334DA94003BD0AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B22C75562334DA94003BD0AA /* GoogleService-Info.plist */; };
 		B22C75592334DEF3003BD0AA /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C75582334DEF3003BD0AA /* DatabaseService.swift */; };
 		B22C755B2334E16D003BD0AA /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C755A2334E16D003BD0AA /* InventoryItem.swift */; };
-		B22C755D2334F7E2003BD0AA /* InventoryLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C755C2334F7E2003BD0AA /* InventoryLocation.swift */; };
 		B23E14172334D7B500C64A8A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E14162334D7B500C64A8A /* AppCoordinator.swift */; };
 		B254E3182332936700C8323C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B254E3172332936700C8323C /* AppDelegate.swift */; };
 		B254E31D2332936700C8323C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B254E31B2332936700C8323C /* Main.storyboard */; };
 		B254E31F2332936900C8323C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B254E31E2332936900C8323C /* Assets.xcassets */; };
 		B254E3222332936900C8323C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B254E3202332936900C8323C /* LaunchScreen.storyboard */; };
 		B254E32D2332936900C8323C /* Inventory_ManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B254E32C2332936900C8323C /* Inventory_ManagerTests.swift */; };
+		D31C48022806BB0500C94737 /* BarcodeMonsterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C48012806BB0500C94737 /* BarcodeMonsterDetails.swift */; };
+		D31C48042806BE2B00C94737 /* BarcodeDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C48032806BE2B00C94737 /* BarcodeDetailsService.swift */; };
+		D31C48072807066C00C94737 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C48062807066C00C94737 /* ScannerViewController.swift */; };
+		D31C480928074F7F00C94737 /* ScanInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C480828074F7F00C94737 /* ScanInputCell.swift */; };
 		D31F89EC2801DE3C00147A9F /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31F89EB2801DE3C00147A9F /* AddItemViewController.swift */; };
 		D35E896828006D300076CC0D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E896728006D300076CC0D /* SignInViewController.swift */; };
 		D35E896A28006D6A0076CC0D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E896928006D6A0076CC0D /* SignUpViewController.swift */; };
@@ -31,6 +34,7 @@
 		D35E897C2801A09F0076CC0D /* CodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E897B2801A09F0076CC0D /* CodeScanner.swift */; };
 		D3791BD52801F64B0042BEBD /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3791BD42801F64B0042BEBD /* AppDependencies.swift */; };
 		D3791BD82802F6760042BEBD /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3791BD72802F6760042BEBD /* ItemDetailsViewController.swift */; };
+		D3B3873D28082209004A214F /* ScanInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3B3873C28082209004A214F /* ScanInputCell.xib */; };
 		E1842C0CE3446778A0B15CCD /* Pods_Inventory_ManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6080C0DAFEC10079285F585 /* Pods_Inventory_ManagerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +56,6 @@
 		B22C75562334DA94003BD0AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B22C75582334DEF3003BD0AA /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		B22C755A2334E16D003BD0AA /* InventoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
-		B22C755C2334F7E2003BD0AA /* InventoryLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryLocation.swift; sourceTree = "<group>"; };
 		B23E14162334D7B500C64A8A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B24B926225AF6C0A007677A5 /* Inventory Manager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Inventory Manager.entitlements"; sourceTree = "<group>"; };
 		B254E3142332936700C8323C /* Inventory Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Inventory Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +68,10 @@
 		B254E32C2332936900C8323C /* Inventory_ManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory_ManagerTests.swift; sourceTree = "<group>"; };
 		B254E32E2332936900C8323C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B901DD781FE63C73A2BC2FD4 /* Pods_Inventory_Manager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Inventory_Manager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D31C48012806BB0500C94737 /* BarcodeMonsterDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeMonsterDetails.swift; sourceTree = "<group>"; };
+		D31C48032806BE2B00C94737 /* BarcodeDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeDetailsService.swift; sourceTree = "<group>"; };
+		D31C48062807066C00C94737 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		D31C480828074F7F00C94737 /* ScanInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanInputCell.swift; sourceTree = "<group>"; };
 		D31F89EB2801DE3C00147A9F /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		D35E896728006D300076CC0D /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D35E896928006D6A0076CC0D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +85,7 @@
 		D35E897B2801A09F0076CC0D /* CodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeScanner.swift; sourceTree = "<group>"; };
 		D3791BD42801F64B0042BEBD /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		D3791BD72802F6760042BEBD /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
+		D3B3873C28082209004A214F /* ScanInputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanInputCell.xib; sourceTree = "<group>"; };
 		D6080C0DAFEC10079285F585 /* Pods_Inventory_ManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Inventory_ManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -124,6 +132,7 @@
 		B23E14122334D4E800C64A8A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D31C48052807065200C94737 /* ScannerViewController */,
 				D3791BD62802F6400042BEBD /* ItemDetails */,
 				D31F89EA2801DE2700147A9F /* AddItem */,
 				D35E897728017CCE0076CC0D /* Main */,
@@ -138,7 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				B22C755A2334E16D003BD0AA /* InventoryItem.swift */,
-				B22C755C2334F7E2003BD0AA /* InventoryLocation.swift */,
+				D31C48012806BB0500C94737 /* BarcodeMonsterDetails.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,6 +171,7 @@
 			children = (
 				D35E897B2801A09F0076CC0D /* CodeScanner.swift */,
 				B22C75582334DEF3003BD0AA /* DatabaseService.swift */,
+				D31C48032806BE2B00C94737 /* BarcodeDetailsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -211,9 +221,18 @@
 			path = "Inventory ManagerTests";
 			sourceTree = "<group>";
 		};
+		D31C48052807065200C94737 /* ScannerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D31C48062807066C00C94737 /* ScannerViewController.swift */,
+			);
+			path = ScannerViewController;
+			sourceTree = "<group>";
+		};
 		D31F89EA2801DE2700147A9F /* AddItem */ = {
 			isa = PBXGroup;
 			children = (
+				D3B3873B280821E9004A214F /* ScanInputCell */,
 				D31F89EB2801DE3C00147A9F /* AddItemViewController.swift */,
 			);
 			path = AddItem;
@@ -243,6 +262,15 @@
 				D3791BD72802F6760042BEBD /* ItemDetailsViewController.swift */,
 			);
 			path = ItemDetails;
+			sourceTree = "<group>";
+		};
+		D3B3873B280821E9004A214F /* ScanInputCell */ = {
+			isa = PBXGroup;
+			children = (
+				D31C480828074F7F00C94737 /* ScanInputCell.swift */,
+				D3B3873C28082209004A214F /* ScanInputCell.xib */,
+			);
+			path = ScanInputCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B254E3222332936900C8323C /* LaunchScreen.storyboard in Resources */,
+				D3B3873D28082209004A214F /* ScanInputCell.xib in Resources */,
 				B22C75572334DA94003BD0AA /* GoogleService-Info.plist in Resources */,
 				B254E31F2332936900C8323C /* Assets.xcassets in Resources */,
 				D35E896C28006DA80076CC0D /* Login.storyboard in Resources */,
@@ -415,15 +444,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D31C48022806BB0500C94737 /* BarcodeMonsterDetails.swift in Sources */,
 				D3791BD82802F6760042BEBD /* ItemDetailsViewController.swift in Sources */,
 				D35E896828006D300076CC0D /* SignInViewController.swift in Sources */,
+				D31C480928074F7F00C94737 /* ScanInputCell.swift in Sources */,
+				D31C48072807066C00C94737 /* ScannerViewController.swift in Sources */,
+				D31C48042806BE2B00C94737 /* BarcodeDetailsService.swift in Sources */,
 				D35E897C2801A09F0076CC0D /* CodeScanner.swift in Sources */,
 				D35E897928017CE10076CC0D /* MainViewController.swift in Sources */,
 				D35E8972280089C40076CC0D /* String+Extensions.swift in Sources */,
 				D3791BD52801F64B0042BEBD /* AppDependencies.swift in Sources */,
 				D35E897428008B830076CC0D /* UIViewController+messages.swift in Sources */,
 				D31F89EC2801DE3C00147A9F /* AddItemViewController.swift in Sources */,
-				B22C755D2334F7E2003BD0AA /* InventoryLocation.swift in Sources */,
 				D35E896A28006D6A0076CC0D /* SignUpViewController.swift in Sources */,
 				B22C755B2334E16D003BD0AA /* InventoryItem.swift in Sources */,
 				B23E14172334D7B500C64A8A /* AppCoordinator.swift in Sources */,

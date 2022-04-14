@@ -9,35 +9,26 @@ import Foundation
 import UIKit
 import AVFoundation
 
-protocol ScannerDelegate: AVCaptureMetadataOutputObjectsDelegate {
-    func cameraView() -> UIView
-//    func metadataOutputDelegate() -> AVCaptureMetadataOutputObjectsDelegate
+protocol ScannerResultDelegate: AnyObject {
     func scanCompleted(withCode code: String)
 }
 
-class Scanner: NSObject {
-    public weak var delegate: ScannerDelegate?
+class Scanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
+    public weak var delegate: ScannerResultDelegate?
     private var captureSession : AVCaptureSession?
     private var  previewLayer: AVCaptureVideoPreviewLayer?
     
-    init(withDelegate delegate: ScannerDelegate) {
+    init(withCameraView cameraView: UIView, delegate: ScannerResultDelegate) {
         self.delegate = delegate
         super.init()
-        self.scannerSetup()
+        self.scannerSetupWithCameraView(cameraView: cameraView)
     }
     
-    private func scannerSetup()  {
+    private func scannerSetupWithCameraView(cameraView: UIView)  {
         guard let captureSession = self.createCaptureSession() else {
             return
         }
-        
         self.captureSession = captureSession
-        
-        guard let delegate = self.delegate else {
-            return
-        }
-        
-        let cameraView = delegate.cameraView()
         let previewLayer = self.createPreviewLayer(withCaptureSession: captureSession,
                                                    view: cameraView)
         self.previewLayer = previewLayer
@@ -57,9 +48,9 @@ class Scanner: NSObject {
                 captureSession.addInput(deviceInput)
                 captureSession.addOutput(metaDataOutput)
                 
-                guard let delegate = self.delegate else { return nil }
+//                guard let delegate = self.delegate else { return nil }
                 
-                metaDataOutput.setMetadataObjectsDelegate(delegate, queue: DispatchQueue.main)
+                metaDataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
                 metaDataOutput.metadataObjectTypes = self.metaObjectTypes()
                 
                 return captureSession
@@ -121,10 +112,9 @@ class Scanner: NSObject {
         self.toggleCaptureSessionRunningState()
     }
     
-    public func layoutPreviewLayer() {
-        guard let view = delegate?.cameraView(),
-              previewLayer?.frame != view.bounds else { return }
-        previewLayer?.frame = view.bounds
+    public func layoutPreviewLayerToContainerBouds(containerBounds: CGRect) {
+        guard previewLayer?.frame != containerBounds else { return }
+        previewLayer?.frame = containerBounds
     }
     
     private func toggleCaptureSessionRunningState() {

@@ -16,14 +16,13 @@ enum DatabaseActionResult {
 
 protocol DatabaseService {
     func searchItemsWithCode( code: String, completion: @escaping (DatabaseActionResult)->())
-    func searchLocationsWithCode( code: String, completion: @escaping (DatabaseActionResult)->())
     func addInventoryItem( item: InventoryItem, completion: @escaping (DatabaseActionResult)->())
-    func addLocation( location: InventoryLocation, completion: @escaping (DatabaseActionResult)->())
+//    func addLocation( location: InventoryLocation, completion: @escaping (DatabaseActionResult)->())
 }
 
 class DatabaseServiceImp: DatabaseService {
     private let CodeDBKey = "code"
-    private let database = Database.database()
+    private let databaseReference = Database.database().reference()
     private let uid: String!
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
@@ -33,13 +32,11 @@ class DatabaseServiceImp: DatabaseService {
     }
     
     private lazy var itemsRef: DatabaseReference = {
-            return database.reference()
-            .child(uid + "/items")
+            return databaseReference.child(uid + "/items")
     }()
     
     private lazy var locationsRef: DatabaseReference = {
-            return database.reference()
-            .child(uid + "/locations")
+            return databaseReference.child(uid + "/locations")
     }()
     
     
@@ -53,16 +50,16 @@ class DatabaseServiceImp: DatabaseService {
             completion(.error(error))
         }
     }
-    func addLocation(location: InventoryLocation, completion: @escaping (DatabaseActionResult) -> ()) {
-        do {
-            let data = try encoder.encode(location)
-            let json = try JSONSerialization.jsonObject(with: data)
-            itemsRef.childByAutoId().setValue(json)
-            completion(.success(nil))
-        } catch {
-            completion(.error(error))
-        }
-    }
+//    func addLocation(location: InventoryLocation, completion: @escaping (DatabaseActionResult) -> ()) {
+//        do {
+//            let data = try encoder.encode(location)
+//            let json = try JSONSerialization.jsonObject(with: data)
+//            itemsRef.childByAutoId().setValue(json)
+//            completion(.success(nil))
+//        } catch {
+//            completion(.error(error))
+//        }
+//    }
     
     func searchItemsWithCode( code: String,  completion: @escaping (DatabaseActionResult)->()) {
         itemsRef.queryOrdered(byChild: CodeDBKey).queryEqual(toValue: code).observeSingleEvent(of: .value) { snapshot in
@@ -83,23 +80,23 @@ class DatabaseServiceImp: DatabaseService {
     }
     
     
-    func searchLocationsWithCode( code: String, completion: @escaping (DatabaseActionResult)->()) {
-        locationsRef.queryOrdered(byChild: CodeDBKey).queryEqual(toValue: code).observeSingleEvent(of: .value) { snapshot in
-            var locations: [InventoryLocation] = []
-            for child in snapshot.children {
-                print(child)
-                do {
-                     let childSnapshot = child as! DataSnapshot
-                    let data = try JSONSerialization.data(withJSONObject: childSnapshot.value!)
-                    let item = try self.decoder.decode(InventoryLocation.self, from: data)
-                    locations.append(item)
-                } catch {
-                    print("an error occurred", error)
-                }
-            }
-            completion(.success([]))
-        }
-    }
+//    func searchLocationsWithCode( code: String, completion: @escaping (DatabaseActionResult)->()) {
+//        locationsRef.queryOrdered(byChild: CodeDBKey).queryEqual(toValue: code).observeSingleEvent(of: .value) { snapshot in
+//            var locations: [InventoryLocation] = []
+//            for child in snapshot.children {
+//                print(child)
+//                do {
+//                     let childSnapshot = child as! DataSnapshot
+//                    let data = try JSONSerialization.data(withJSONObject: childSnapshot.value!)
+//                    let item = try self.decoder.decode(InventoryLocation.self, from: data)
+//                    locations.append(item)
+//                } catch {
+//                    print("an error occurred", error)
+//                }
+//            }
+//            completion(.success([]))
+//        }
+//    }
     
     
 }

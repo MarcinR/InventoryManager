@@ -10,9 +10,11 @@ import Foundation
 
 struct AppDependencies {
     let databaseService: DatabaseService
+    let barcodeDetailsService: BarcodeDetailsService
     
     
     init(uid: String) {
         databaseService = DatabaseServiceImp(uid: uid)
+        barcodeDetailsService = BarcodeDetailsServiceImp()
     }
 }
