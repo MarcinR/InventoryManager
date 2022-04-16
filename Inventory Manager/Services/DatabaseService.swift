@@ -10,14 +10,16 @@ import Foundation
 import FirebaseDatabase
 
 enum DatabaseActionResult {
-    case success([InventoryItem]?)
+    case success([DatabaseItem]?)
     case error(Error)
 }
 
 protocol DatabaseService {
     func searchItemsWithCode( code: String, completion: @escaping (DatabaseActionResult)->())
     func addInventoryItem( item: InventoryItem, completion: @escaping (DatabaseActionResult)->())
-//    func addLocation( location: InventoryLocation, completion: @escaping (DatabaseActionResult)->())
+    func updateItem(item: DatabaseItem, completion: @escaping (DatabaseActionResult)->())
+    func deleteItem(withID id: String, completion: @escaping (DatabaseActionResult)->())
+    func searchItemsWithText(text: String,  completion: @escaping (DatabaseActionResult)->())
 }
 
 class DatabaseServiceImp: DatabaseService {
@@ -32,11 +34,9 @@ class DatabaseServiceImp: DatabaseService {
     }
     
     private lazy var itemsRef: DatabaseReference = {
-            return databaseReference.child(uid + "/items")
-    }()
-    
-    private lazy var locationsRef: DatabaseReference = {
-            return databaseReference.child(uid + "/locations")
+        let ref = databaseReference.child(uid + "/items")
+        ref.keepSynced(true)
+        return ref
     }()
     
     
@@ -50,27 +50,28 @@ class DatabaseServiceImp: DatabaseService {
             completion(.error(error))
         }
     }
-//    func addLocation(location: InventoryLocation, completion: @escaping (DatabaseActionResult) -> ()) {
-//        do {
-//            let data = try encoder.encode(location)
-//            let json = try JSONSerialization.jsonObject(with: data)
-//            itemsRef.childByAutoId().setValue(json)
-//            completion(.success(nil))
-//        } catch {
-//            completion(.error(error))
-//        }
-//    }
+    
+    
+    func updateItem(item: DatabaseItem, completion: @escaping (DatabaseActionResult)->()) {
+        do {
+            let data = try encoder.encode(item.item)
+          let json = try JSONSerialization.jsonObject(with: data)
+            itemsRef.child(item.id).setValue(json)
+            completion(.success(nil))
+        } catch {
+            completion(.error(error))
+        }
+    }
     
     func searchItemsWithCode( code: String,  completion: @escaping (DatabaseActionResult)->()) {
         itemsRef.queryOrdered(byChild: CodeDBKey).queryEqual(toValue: code).observeSingleEvent(of: .value) { snapshot in
-            var items: [InventoryItem] = []
+            var items: [DatabaseItem] = []
             for child in snapshot.children {
-                print(child)
                 do {
                     let childSnapshot = child as! DataSnapshot
                     let data = try JSONSerialization.data(withJSONObject: childSnapshot.value!)
                     let item = try self.decoder.decode(InventoryItem.self, from: data)
-                    items.append(item)
+                    items.append(DatabaseItem(id: childSnapshot.key, item: item))
                 } catch {
                     print("an error occurred", error)
                 }
@@ -79,24 +80,40 @@ class DatabaseServiceImp: DatabaseService {
         }
     }
     
+    func deleteItem(withID id: String, completion: @escaping (DatabaseActionResult)->()) {
+        itemsRef.child(id).removeValue { error, _ in
+            if let error = error {
+                completion(.error(error))
+            } else {
+                completion(.success(nil))
+            }
+        }
+    }
     
-//    func searchLocationsWithCode( code: String, completion: @escaping (DatabaseActionResult)->()) {
-//        locationsRef.queryOrdered(byChild: CodeDBKey).queryEqual(toValue: code).observeSingleEvent(of: .value) { snapshot in
-//            var locations: [InventoryLocation] = []
-//            for child in snapshot.children {
-//                print(child)
-//                do {
-//                     let childSnapshot = child as! DataSnapshot
-//                    let data = try JSONSerialization.data(withJSONObject: childSnapshot.value!)
-//                    let item = try self.decoder.decode(InventoryLocation.self, from: data)
-//                    locations.append(item)
-//                } catch {
-//                    print("an error occurred", error)
-//                }
-//            }
-//            completion(.success([]))
-//        }
-//    }
+    
+    func searchItemsWithText(text: String,  completion: @escaping (DatabaseActionResult)->()) {
+        itemsRef.observeSingleEvent(of: .value) { snapshot in
+            var databaseItems: [DatabaseItem] = []
+            guard let snapshotDictionary = snapshot.value as? [String: AnyObject] else { return }
+            for element in snapshotDictionary {
+                // check if 
+                guard let name = element.value["name"] as? String,
+                      let description = element.value["description"] as? String,
+                      (name.contains(text) || description.contains(text))
+                else { continue }
+                
+                do {
+                    let data = try JSONSerialization.data(withJSONObject: element.value)
+                    let item = try self.decoder.decode(InventoryItem.self, from: data)
+                    databaseItems.append(DatabaseItem(id: element.key, item: item))
+                } catch {
+                    print("an error occurred", error)
+                }
+            }
+            completion(.success(databaseItems))
+        }
+        
+    }
     
     
 }

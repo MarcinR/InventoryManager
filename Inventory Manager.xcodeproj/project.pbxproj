@@ -34,6 +34,12 @@
 		D35E897C2801A09F0076CC0D /* CodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E897B2801A09F0076CC0D /* CodeScanner.swift */; };
 		D3791BD52801F64B0042BEBD /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3791BD42801F64B0042BEBD /* AppDependencies.swift */; };
 		D3791BD82802F6760042BEBD /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3791BD72802F6760042BEBD /* ItemDetailsViewController.swift */; };
+		D37D9B65280984CC00292C19 /* DatabaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37D9B64280984CC00292C19 /* DatabaseItem.swift */; };
+		D37D9B682809963100292C19 /* MainFlowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37D9B672809963100292C19 /* MainFlowRouter.swift */; };
+		D37D9B6A280A0AAF00292C19 /* ItemsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37D9B69280A0AAF00292C19 /* ItemsListViewController.swift */; };
+		D37D9B6D280A11AB00292C19 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37D9B6C280A11AB00292C19 /* ItemCell.swift */; };
+		D37D9B71280A1BCA00292C19 /* LayoutConstrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37D9B70280A1BCA00292C19 /* LayoutConstrainable.swift */; };
+		D37D9B73280A1EF500292C19 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37D9B72280A1EF500292C19 /* Reusable.swift */; };
 		D3B3873D28082209004A214F /* ScanInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3B3873C28082209004A214F /* ScanInputCell.xib */; };
 		E1842C0CE3446778A0B15CCD /* Pods_Inventory_ManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6080C0DAFEC10079285F585 /* Pods_Inventory_ManagerTests.framework */; };
 /* End PBXBuildFile section */
@@ -85,6 +91,12 @@
 		D35E897B2801A09F0076CC0D /* CodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeScanner.swift; sourceTree = "<group>"; };
 		D3791BD42801F64B0042BEBD /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		D3791BD72802F6760042BEBD /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
+		D37D9B64280984CC00292C19 /* DatabaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseItem.swift; sourceTree = "<group>"; };
+		D37D9B672809963100292C19 /* MainFlowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowRouter.swift; sourceTree = "<group>"; };
+		D37D9B69280A0AAF00292C19 /* ItemsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsListViewController.swift; sourceTree = "<group>"; };
+		D37D9B6C280A11AB00292C19 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		D37D9B70280A1BCA00292C19 /* LayoutConstrainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstrainable.swift; sourceTree = "<group>"; };
+		D37D9B72280A1EF500292C19 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		D3B3873C28082209004A214F /* ScanInputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanInputCell.xib; sourceTree = "<group>"; };
 		D6080C0DAFEC10079285F585 /* Pods_Inventory_ManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Inventory_ManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -132,6 +144,7 @@
 		B23E14122334D4E800C64A8A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D37D9B6B280A0AB400292C19 /* ItemsList */,
 				D31C48052807065200C94737 /* ScannerViewController */,
 				D3791BD62802F6400042BEBD /* ItemDetails */,
 				D31F89EA2801DE2700147A9F /* AddItem */,
@@ -148,6 +161,7 @@
 			children = (
 				B22C755A2334E16D003BD0AA /* InventoryItem.swift */,
 				D31C48012806BB0500C94737 /* BarcodeMonsterDetails.swift */,
+				D37D9B64280984CC00292C19 /* DatabaseItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,6 +176,8 @@
 				D35E897328008B830076CC0D /* UIViewController+messages.swift */,
 				D35E8975280175450076CC0D /* WireFrames.swift */,
 				D3791BD42801F64B0042BEBD /* AppDependencies.swift */,
+				D37D9B70280A1BCA00292C19 /* LayoutConstrainable.swift */,
+				D37D9B72280A1EF500292C19 /* Reusable.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -200,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				B24B926225AF6C0A007677A5 /* Inventory Manager.entitlements */,
+				D37D9B662809961B00292C19 /* Router */,
 				B23E14122334D4E800C64A8A /* Controllers */,
 				B23E14132334D4F500C64A8A /* Models */,
 				B23E14182334D7BE00C64A8A /* Services */,
@@ -262,6 +279,23 @@
 				D3791BD72802F6760042BEBD /* ItemDetailsViewController.swift */,
 			);
 			path = ItemDetails;
+			sourceTree = "<group>";
+		};
+		D37D9B662809961B00292C19 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				D37D9B672809963100292C19 /* MainFlowRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		D37D9B6B280A0AB400292C19 /* ItemsList */ = {
+			isa = PBXGroup;
+			children = (
+				D37D9B69280A0AAF00292C19 /* ItemsListViewController.swift */,
+				D37D9B6C280A11AB00292C19 /* ItemCell.swift */,
+			);
+			path = ItemsList;
 			sourceTree = "<group>";
 		};
 		D3B3873B280821E9004A214F /* ScanInputCell */ = {
@@ -450,14 +484,20 @@
 				D31C480928074F7F00C94737 /* ScanInputCell.swift in Sources */,
 				D31C48072807066C00C94737 /* ScannerViewController.swift in Sources */,
 				D31C48042806BE2B00C94737 /* BarcodeDetailsService.swift in Sources */,
+				D37D9B73280A1EF500292C19 /* Reusable.swift in Sources */,
 				D35E897C2801A09F0076CC0D /* CodeScanner.swift in Sources */,
 				D35E897928017CE10076CC0D /* MainViewController.swift in Sources */,
+				D37D9B6D280A11AB00292C19 /* ItemCell.swift in Sources */,
 				D35E8972280089C40076CC0D /* String+Extensions.swift in Sources */,
 				D3791BD52801F64B0042BEBD /* AppDependencies.swift in Sources */,
 				D35E897428008B830076CC0D /* UIViewController+messages.swift in Sources */,
 				D31F89EC2801DE3C00147A9F /* AddItemViewController.swift in Sources */,
+				D37D9B6A280A0AAF00292C19 /* ItemsListViewController.swift in Sources */,
+				D37D9B71280A1BCA00292C19 /* LayoutConstrainable.swift in Sources */,
 				D35E896A28006D6A0076CC0D /* SignUpViewController.swift in Sources */,
+				D37D9B682809963100292C19 /* MainFlowRouter.swift in Sources */,
 				B22C755B2334E16D003BD0AA /* InventoryItem.swift in Sources */,
+				D37D9B65280984CC00292C19 /* DatabaseItem.swift in Sources */,
 				B23E14172334D7B500C64A8A /* AppCoordinator.swift in Sources */,
 				B22C75592334DEF3003BD0AA /* DatabaseService.swift in Sources */,
 				D35E8976280175450076CC0D /* WireFrames.swift in Sources */,

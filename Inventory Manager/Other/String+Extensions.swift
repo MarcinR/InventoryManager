@@ -27,4 +27,10 @@ extension Optional where Wrapped == String {
         guard let strongSelf = self else { return false }
         return !strongSelf.isEmpty
     }
+    
+    func contains(_ text: String) -> Bool {
+//        guard let strongSelf = self else { return false }
+//        return strongSelf.contains(text)
+        return (self ?? "").contains(text)
+    }
 }

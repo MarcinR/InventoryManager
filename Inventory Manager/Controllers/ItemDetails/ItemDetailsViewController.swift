@@ -16,17 +16,17 @@ class ItemDetailsViewController: UITableViewController {
     @IBOutlet private var locationLabel: UILabel!
     @IBOutlet private var descriptionLabel: UILabel!
     // TODO: to nie powinno być przekazywane jako var
-    var  item: InventoryItem?
+    var  databaseItem: DatabaseItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let item = self.item {
-            setupWithItem(item: item)
-        }
+        setup()
     }
     
-    func setupWithItem(item: InventoryItem) {
-        idLabel.text = item.id
+    func setup() {
+        guard let dbItem = databaseItem else { return }
+        let item = dbItem.item
+        idLabel.text =  dbItem.id
         nameLabel.text = item.name
         codeLabel.text = item.code
         locationLabel.text = item.shelfID
@@ -34,4 +34,9 @@ class ItemDetailsViewController: UITableViewController {
     }
 
 
+    @IBAction func didTapEditButton() {
+        guard let item = databaseItem else { return }
+        let viewController = WireFrames.getEditItemViewController(withDatabaseItem: item)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }

@@ -11,7 +11,8 @@ import AVFoundation
 
 class MainViewController: UIViewController {
     @IBOutlet private var scannerView: UIView!
-    private var scannedItem: InventoryItem?
+//    var router: MainFlowRouter?
+    private var scannedItem: DatabaseItem?
     private var scanner: Scanner?
     
     override func viewDidLoad() {
@@ -36,10 +37,10 @@ class MainViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        guard let item = scannedItem,
+        guard let scannedItem = scannedItem,
               let itemDetailsVC = segue.destination as? ItemDetailsViewController
         else { return }
-        itemDetailsVC.item = item
+        itemDetailsVC.databaseItem = scannedItem
     }
     
     @IBAction func didTapAddItem() {
@@ -51,9 +52,26 @@ class MainViewController: UIViewController {
     }
     
     
+    @IBAction func didTapSearchButton() {
+        Dependencies.databaseService.searchItemsWithText(text: "a") { [weak self] result in
+            switch result {
+            case .success(let items):
+                guard let items = items else { return }
+                self?.showList(with: items)
+            case .error(let error):
+                self?.showMessage(message: error.localizedDescription)
+            }
+        }
+    }
+    
 }
 
 private extension MainViewController {
+    func showList(with items: [DatabaseItem]) {
+         let vc = ItemsListViewController(items: items)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func showItemWithCode(code: String) {
         Dependencies.databaseService.searchItemsWithCode(code: code) { [weak self] result in
             switch  result {
@@ -78,7 +96,6 @@ private extension MainViewController {
                 switch result {
                 case .success(let details):
                     self?.showMessage(message: details.description ?? "No details")
-                    return
                 case .error(let error):
                     self?.showMessage(message: error.localizedDescription)
                 }

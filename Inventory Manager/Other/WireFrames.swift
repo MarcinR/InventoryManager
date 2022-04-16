@@ -48,4 +48,11 @@ class WireFrames {
         vc.complition = complition
         return vc
     }
+    
+    class func getEditItemViewController(withDatabaseItem item: DatabaseItem) -> UIViewController {
+        let vc = LoadControlerWithIdentifier(identifier: "AddItemViewController", storyboard: .Main) as! AddItemViewController
+        vc.currentDatabaseItem = item
+        vc.createLocationMode = item.item.isLocation ?? false
+        return vc
+    }
 }

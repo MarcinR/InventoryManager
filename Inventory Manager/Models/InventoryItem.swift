@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct InventoryItem: Identifiable, Codable {
-    let id: String?
+struct InventoryItem: Codable {
     let code: String
     let name: String
     let shelfID: String?
     let description: String?
     let isLocation: Bool?
 }
+
