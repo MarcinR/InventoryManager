@@ -17,7 +17,7 @@
 		B254E31F2332936900C8323C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B254E31E2332936900C8323C /* Assets.xcassets */; };
 		B254E3222332936900C8323C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B254E3202332936900C8323C /* LaunchScreen.storyboard */; };
 		B254E32D2332936900C8323C /* Inventory_ManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B254E32C2332936900C8323C /* Inventory_ManagerTests.swift */; };
-		D31C48022806BB0500C94737 /* BarcodeMonsterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C48012806BB0500C94737 /* BarcodeMonsterDetails.swift */; };
+		D31C48022806BB0500C94737 /* EanIsdbDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C48012806BB0500C94737 /* EanIsdbDetails.swift */; };
 		D31C48042806BE2B00C94737 /* BarcodeDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C48032806BE2B00C94737 /* BarcodeDetailsService.swift */; };
 		D31C48072807066C00C94737 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C48062807066C00C94737 /* ScannerViewController.swift */; };
 		D31C480928074F7F00C94737 /* ScanInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C480828074F7F00C94737 /* ScanInputCell.swift */; };
@@ -40,6 +40,7 @@
 		D37D9B6D280A11AB00292C19 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37D9B6C280A11AB00292C19 /* ItemCell.swift */; };
 		D37D9B71280A1BCA00292C19 /* LayoutConstrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37D9B70280A1BCA00292C19 /* LayoutConstrainable.swift */; };
 		D37D9B73280A1EF500292C19 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37D9B72280A1EF500292C19 /* Reusable.swift */; };
+		D37D9B75280B3BF500292C19 /* ItemListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37D9B74280B3BF500292C19 /* ItemListDataSource.swift */; };
 		D3B3873D28082209004A214F /* ScanInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3B3873C28082209004A214F /* ScanInputCell.xib */; };
 		E1842C0CE3446778A0B15CCD /* Pods_Inventory_ManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6080C0DAFEC10079285F585 /* Pods_Inventory_ManagerTests.framework */; };
 /* End PBXBuildFile section */
@@ -74,7 +75,7 @@
 		B254E32C2332936900C8323C /* Inventory_ManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory_ManagerTests.swift; sourceTree = "<group>"; };
 		B254E32E2332936900C8323C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B901DD781FE63C73A2BC2FD4 /* Pods_Inventory_Manager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Inventory_Manager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D31C48012806BB0500C94737 /* BarcodeMonsterDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeMonsterDetails.swift; sourceTree = "<group>"; };
+		D31C48012806BB0500C94737 /* EanIsdbDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EanIsdbDetails.swift; sourceTree = "<group>"; };
 		D31C48032806BE2B00C94737 /* BarcodeDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeDetailsService.swift; sourceTree = "<group>"; };
 		D31C48062807066C00C94737 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		D31C480828074F7F00C94737 /* ScanInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanInputCell.swift; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 		D37D9B6C280A11AB00292C19 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		D37D9B70280A1BCA00292C19 /* LayoutConstrainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstrainable.swift; sourceTree = "<group>"; };
 		D37D9B72280A1EF500292C19 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		D37D9B74280B3BF500292C19 /* ItemListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListDataSource.swift; sourceTree = "<group>"; };
 		D3B3873C28082209004A214F /* ScanInputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanInputCell.xib; sourceTree = "<group>"; };
 		D6080C0DAFEC10079285F585 /* Pods_Inventory_ManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Inventory_ManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -160,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				B22C755A2334E16D003BD0AA /* InventoryItem.swift */,
-				D31C48012806BB0500C94737 /* BarcodeMonsterDetails.swift */,
+				D31C48012806BB0500C94737 /* EanIsdbDetails.swift */,
 				D37D9B64280984CC00292C19 /* DatabaseItem.swift */,
 			);
 			path = Models;
@@ -294,6 +296,7 @@
 			children = (
 				D37D9B69280A0AAF00292C19 /* ItemsListViewController.swift */,
 				D37D9B6C280A11AB00292C19 /* ItemCell.swift */,
+				D37D9B74280B3BF500292C19 /* ItemListDataSource.swift */,
 			);
 			path = ItemsList;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				B254E3112332936700C8323C /* Frameworks */,
 				B254E3122332936700C8323C /* Resources */,
 				EAF8FF90E13086C3BA84E984 /* [CP] Embed Pods Frameworks */,
+				D37D9B76280C0D5700292C19 /* Swift lint */,
 			);
 			buildRules = (
 			);
@@ -454,6 +458,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D37D9B76280C0D5700292C19 /* Swift lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		EAF8FF90E13086C3BA84E984 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -478,7 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D31C48022806BB0500C94737 /* BarcodeMonsterDetails.swift in Sources */,
+				D31C48022806BB0500C94737 /* EanIsdbDetails.swift in Sources */,
 				D3791BD82802F6760042BEBD /* ItemDetailsViewController.swift in Sources */,
 				D35E896828006D300076CC0D /* SignInViewController.swift in Sources */,
 				D31C480928074F7F00C94737 /* ScanInputCell.swift in Sources */,
@@ -489,6 +511,7 @@
 				D35E897928017CE10076CC0D /* MainViewController.swift in Sources */,
 				D37D9B6D280A11AB00292C19 /* ItemCell.swift in Sources */,
 				D35E8972280089C40076CC0D /* String+Extensions.swift in Sources */,
+				D37D9B75280B3BF500292C19 /* ItemListDataSource.swift in Sources */,
 				D3791BD52801F64B0042BEBD /* AppDependencies.swift in Sources */,
 				D35E897428008B830076CC0D /* UIViewController+messages.swift in Sources */,
 				D31F89EC2801DE3C00147A9F /* AddItemViewController.swift in Sources */,

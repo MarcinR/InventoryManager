@@ -9,8 +9,10 @@
 import Foundation
 
 // this is model returned by calling https://barcode.monster/api/<barcode>
-struct BarcodeMonsterDetails: Codable {
+struct BarcodeProductDetails: Codable {
     let code: String
     let image_url: String?
-    let description: String?
+    let name: String?
+    let details: String?
+    
 }

@@ -45,6 +45,8 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>App requires access to camera to scan qr and bar codes.</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

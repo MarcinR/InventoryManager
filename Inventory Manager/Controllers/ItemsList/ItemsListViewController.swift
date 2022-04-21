@@ -9,11 +9,18 @@
 import UIKit
 
 class ItemsListViewController: UIViewController {
-    private var tableView: UITableView!
-    var items: [DatabaseItem] = []
+    private var tableView: UITableView?
+    private let dataSource = ItemListDataSource()
+    var items: [DatabaseItem] = [] {
+        didSet {
+            dataSource.updateItems(databaseItems: items)
+            tableView?.reloadData()
+        }
+    }
     
     init(items: [DatabaseItem] ) {
         self.items = items
+        dataSource.updateItems(databaseItems: items)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -24,6 +31,8 @@ class ItemsListViewController: UIViewController {
     override func loadView() {
         tableView = UITableView(frame: .zero, style: .grouped)
         view = tableView
+        tableView?.reloadData()
+        
     }
 
     override func viewDidLoad() {
@@ -33,29 +42,13 @@ class ItemsListViewController: UIViewController {
     }
     
     private func setupTableView() {
-        tableView.register(ItemCell.self)
-        tableView.dataSource = self
-        tableView.delegate = self
-    }
-
-}
-
-extension ItemsListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.reuseIdentifier, for: indexPath) as! ItemCell
-        let item = items[indexPath.row]
-        cell.bind(with: item)
-        
-        return cell
+        tableView?.register(ItemCell.self)
+        tableView?.dataSource = dataSource
+        tableView?.delegate = self
     }
 }
 
 extension ItemsListViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]
         let vc = WireFrames.getEditItemViewController(withDatabaseItem: item)

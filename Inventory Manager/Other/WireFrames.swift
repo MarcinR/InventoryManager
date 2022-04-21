@@ -9,8 +9,8 @@
 import UIKit
 
 enum Storyboard: String {
-case Main = "Main"
-case Login = "Login"
+case main = "Main"
+case login = "Login"
 }
 
 class WireFrames {
@@ -20,37 +20,36 @@ class WireFrames {
     }
     
     class func getSignInViewController() -> SignInViewController {
-        return LoadControlerWithIdentifier(identifier: "SignInViewController", storyboard: .Login) as! SignInViewController
+        return LoadControlerWithIdentifier(identifier: "SignInViewController", storyboard: .login) as! SignInViewController
     }
     
     
     class func getMainViewController() -> UIViewController {
-        return LoadControlerWithIdentifier(identifier: "Main", storyboard: .Main) //as! SignInViewController
+        return LoadControlerWithIdentifier(identifier: "Main", storyboard: .main) //as! SignInViewController
     }
     
     class func getMainNavigationController() -> UINavigationController {
-        return LoadControlerWithIdentifier(identifier: "MainNavigationController", storyboard: .Main) as! UINavigationController
+        return LoadControlerWithIdentifier(identifier: "MainNavigationController", storyboard: .main) as! UINavigationController
     }
     
-    
     class func getAddItemViewController() -> UIViewController {
-        return LoadControlerWithIdentifier(identifier: "AddItemViewController", storyboard: .Main) //as! SignInViewController
+        return LoadControlerWithIdentifier(identifier: "AddItemViewController", storyboard: .main) //as! SignInViewController
     }
     
     class func getAddLocationViewController() -> UIViewController {
-        let vc =  LoadControlerWithIdentifier(identifier: "AddItemViewController", storyboard: .Main) as! AddItemViewController
+        let vc =  LoadControlerWithIdentifier(identifier: "AddItemViewController", storyboard: .main) as! AddItemViewController
         vc.createLocationMode = true
         return vc
     }
     
     class func getScannerViewController(withComplition complition: ((String) -> Void)?) -> UIViewController {
-        let vc =  LoadControlerWithIdentifier(identifier: "ScannerViewController", storyboard: .Main) as! ScannerViewController
+        let vc =  LoadControlerWithIdentifier(identifier: "ScannerViewController", storyboard: .main) as! ScannerViewController
         vc.complition = complition
         return vc
     }
     
     class func getEditItemViewController(withDatabaseItem item: DatabaseItem) -> UIViewController {
-        let vc = LoadControlerWithIdentifier(identifier: "AddItemViewController", storyboard: .Main) as! AddItemViewController
+        let vc = LoadControlerWithIdentifier(identifier: "AddItemViewController", storyboard: .main) as! AddItemViewController
         vc.currentDatabaseItem = item
         vc.createLocationMode = item.item.isLocation ?? false
         return vc

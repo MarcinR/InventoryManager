@@ -12,6 +12,9 @@ target 'Inventory Manager' do
 
   pod 'MBProgressHUD'
   
+  pod 'SwiftLint'
+  
+  
   target 'Inventory ManagerTests' do
     inherit! :search_paths
     # Pods for testing

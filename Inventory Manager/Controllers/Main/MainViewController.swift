@@ -11,6 +11,8 @@ import AVFoundation
 
 class MainViewController: UIViewController {
     @IBOutlet private var scannerView: UIView!
+    @IBOutlet private var searchTextField: UITextField!
+    @IBOutlet private var searchButton: UIButton!
 //    var router: MainFlowRouter?
     private var scannedItem: DatabaseItem?
     private var scanner: Scanner?
@@ -53,7 +55,9 @@ class MainViewController: UIViewController {
     
     
     @IBAction func didTapSearchButton() {
-        Dependencies.databaseService.searchItemsWithText(text: "a") { [weak self] result in
+        endEditing()
+        guard let searchText = searchTextField.text, !searchText.isEmpty else { return }
+        Dependencies.databaseService.searchItemsWithText(text: searchText) { [weak self] result in
             switch result {
             case .success(let items):
                 guard let items = items else { return }
@@ -91,11 +95,11 @@ private extension MainViewController {
     }
     
     func showDetailsForCode(code: String) {
-        Dependencies.barcodeDetailsService.getDetailsForBarcode(barcode: code) { [weak self] result in
+        Dependencies.barcodeDetailsService.getBooksDBDetailsForBarcode(barcode: code) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let details):
-                    self?.showMessage(message: details.description ?? "No details")
+                    self?.showMessage(message: details?.name ?? "No details")
                 case .error(let error):
                     self?.showMessage(message: error.localizedDescription)
                 }
@@ -109,5 +113,12 @@ extension MainViewController: ScannerResultDelegate {
         showItemWithCode(code: code)
         UIPasteboard.general.string = code
         scanner?.requestCaptureSessionStartRunning()
+    }
+}
+
+extension MainViewController: UITextFieldDelegate {
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        searchButton.isEnabled = searchTextField.text.isNotEmpty()
     }
 }

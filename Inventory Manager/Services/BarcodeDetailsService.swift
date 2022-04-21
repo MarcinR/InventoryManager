@@ -23,19 +23,20 @@ extension InternalError: LocalizedError {
 
 
 enum BarcodeDetailsActionResult {
-    case success(BarcodeMonsterDetails)
+    case success(BarcodeProductDetails?)
     case error(Error)
 }
 
 protocol BarcodeDetailsService {
-    func getDetailsForBarcode(barcode: String, completion: @escaping (BarcodeDetailsActionResult)->())
+    func getMonsterDBDetailsForBarcode(barcode: String, completion: @escaping (BarcodeDetailsActionResult)->())
+    func getBooksDBDetailsForBarcode(barcode: String, completion: @escaping (BarcodeDetailsActionResult)->())
 }
 
 class BarcodeDetailsServiceImp: BarcodeDetailsService {
     
     private let decoder = JSONDecoder()
     
-    func getDetailsForBarcode(barcode: String, completion: @escaping (BarcodeDetailsActionResult)->()) {
+    func getMonsterDBDetailsForBarcode(barcode: String, completion: @escaping (BarcodeDetailsActionResult)->()) {
         
         guard let url = URL(string:"https://barcode.monster/api/" + barcode) else {
             completion(.error(InternalError.customError(message:"Invalid URL")))
@@ -49,11 +50,46 @@ class BarcodeDetailsServiceImp: BarcodeDetailsService {
                 return
             }
             do {
-                let details = try self.decoder.decode(BarcodeMonsterDetails.self, from: data)
+                guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any],
+                      let name = json["destination"] as? String
+                else {
+                          completion(.success(nil))
+                          return
+                      }
+                let imageAddress =  json["image_url"] as? String
+                let details = BarcodeProductDetails(code: barcode, image_url: imageAddress, name: name, details: nil)
                 completion(.success(details))
             } catch(let parsingError) {
                 completion(.error(parsingError))
             }        }.resume()
     }
     
+    func getBooksDBDetailsForBarcode(barcode: String, completion: @escaping (BarcodeDetailsActionResult)->()) {
+        guard let url = URL(string:"https://openlibrary.org/isbn/" + barcode + ".json") else {
+            completion(.error(InternalError.customError(message:"Invalid URL")))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            let customError = InternalError.customError(message: "Invalid API respoinse")
+            guard let response = response as? HTTPURLResponse,
+                  (200...299).contains(response.statusCode),
+                  let data = data
+            else {
+                completion(.error(error ?? customError))
+                return
+            }
+            do {
+                guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any],
+                      let name = json["title"] as? String
+                else {
+                          completion(.success(nil))
+                          return
+                      }
+                let details = BarcodeProductDetails(code: barcode, image_url: nil, name: name, details: "book")
+                completion(.success(details))
+            } catch(let parsingError) {
+                completion(.error(parsingError))
+            }        }.resume()
+    }
 }
