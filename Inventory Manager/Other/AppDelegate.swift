@@ -24,6 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loadView()
         return true
     }
+    
+    
+    func application(_ application: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey : Any] = [:] ) -> Bool {
+        
+        guard let itemID = url.host else { return false }
+        appCoordinator?.openDetailsForCode(code: itemID)
+        return true
+    }
 
 }
 

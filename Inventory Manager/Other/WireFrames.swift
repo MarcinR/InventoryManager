@@ -54,4 +54,12 @@ class WireFrames {
         vc.createLocationMode = item.item.isLocation ?? false
         return vc
     }
+    
+    
+    class func getNewCodeViewController(withCode code: String) -> UIViewController {
+        let vc = LoadControlerWithIdentifier(identifier: "NewCodeViewController", storyboard: .main) as! NewCodeViewController
+        vc.code = code
+        return vc
+    }
+    
 }

@@ -22,6 +22,7 @@
 		D31C48072807066C00C94737 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C48062807066C00C94737 /* ScannerViewController.swift */; };
 		D31C480928074F7F00C94737 /* ScanInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C480828074F7F00C94737 /* ScanInputCell.swift */; };
 		D31F89EC2801DE3C00147A9F /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31F89EB2801DE3C00147A9F /* AddItemViewController.swift */; };
+		D32DCD3B2823EE2A00DC5E15 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32DCD3A2823EE2A00DC5E15 /* SettingsViewController.swift */; };
 		D35E896828006D300076CC0D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E896728006D300076CC0D /* SignInViewController.swift */; };
 		D35E896A28006D6A0076CC0D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35E896928006D6A0076CC0D /* SignUpViewController.swift */; };
 		D35E896C28006DA80076CC0D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35E896B28006DA80076CC0D /* Login.storyboard */; };
@@ -41,6 +42,11 @@
 		D37D9B71280A1BCA00292C19 /* LayoutConstrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37D9B70280A1BCA00292C19 /* LayoutConstrainable.swift */; };
 		D37D9B73280A1EF500292C19 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37D9B72280A1EF500292C19 /* Reusable.swift */; };
 		D37D9B75280B3BF500292C19 /* ItemListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37D9B74280B3BF500292C19 /* ItemListDataSource.swift */; };
+		D3806095281176FD00C209E0 /* NanoID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3806094281176FD00C209E0 /* NanoID.swift */; };
+		D3806097281177DA00C209E0 /* QRCodesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3806096281177DA00C209E0 /* QRCodesCollectionViewController.swift */; };
+		D38060992811BE2200C209E0 /* QRCodeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38060982811BE2200C209E0 /* QRCodeCollectionViewCell.swift */; };
+		D3806F9F28199BAA0024243E /* CodeDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3806F9E28199BAA0024243E /* CodeDetailsCell.swift */; };
+		D3806FA1281A9D7C0024243E /* NewCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3806FA0281A9D7C0024243E /* NewCodeViewController.swift */; };
 		D3B3873D28082209004A214F /* ScanInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3B3873C28082209004A214F /* ScanInputCell.xib */; };
 		E1842C0CE3446778A0B15CCD /* Pods_Inventory_ManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6080C0DAFEC10079285F585 /* Pods_Inventory_ManagerTests.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +86,7 @@
 		D31C48062807066C00C94737 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		D31C480828074F7F00C94737 /* ScanInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanInputCell.swift; sourceTree = "<group>"; };
 		D31F89EB2801DE3C00147A9F /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		D32DCD3A2823EE2A00DC5E15 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D35E896728006D300076CC0D /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D35E896928006D6A0076CC0D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D35E896B28006DA80076CC0D /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -99,6 +106,11 @@
 		D37D9B70280A1BCA00292C19 /* LayoutConstrainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstrainable.swift; sourceTree = "<group>"; };
 		D37D9B72280A1EF500292C19 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		D37D9B74280B3BF500292C19 /* ItemListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListDataSource.swift; sourceTree = "<group>"; };
+		D3806094281176FD00C209E0 /* NanoID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NanoID.swift; sourceTree = "<group>"; };
+		D3806096281177DA00C209E0 /* QRCodesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodesCollectionViewController.swift; sourceTree = "<group>"; };
+		D38060982811BE2200C209E0 /* QRCodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeCollectionViewCell.swift; sourceTree = "<group>"; };
+		D3806F9E28199BAA0024243E /* CodeDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeDetailsCell.swift; sourceTree = "<group>"; };
+		D3806FA0281A9D7C0024243E /* NewCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCodeViewController.swift; sourceTree = "<group>"; };
 		D3B3873C28082209004A214F /* ScanInputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanInputCell.xib; sourceTree = "<group>"; };
 		D6080C0DAFEC10079285F585 /* Pods_Inventory_ManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Inventory_ManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -146,6 +158,9 @@
 		B23E14122334D4E800C64A8A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D32DCD392823EE1E00DC5E15 /* Settings */,
+				D3806F9D28199B4B0024243E /* AddItemPopup */,
+				D380609228116F5900C209E0 /* QRCodesGenerator */,
 				D37D9B6B280A0AB400292C19 /* ItemsList */,
 				D31C48052807065200C94737 /* ScannerViewController */,
 				D3791BD62802F6400042BEBD /* ItemDetails */,
@@ -223,6 +238,7 @@
 				B23E14132334D4F500C64A8A /* Models */,
 				B23E14182334D7BE00C64A8A /* Services */,
 				B23E14152334D50900C64A8A /* Other */,
+				D3806093281176FD00C209E0 /* Imported */,
 				B254E3202332936900C8323C /* LaunchScreen.storyboard */,
 				B22C75562334DA94003BD0AA /* GoogleService-Info.plist */,
 				B254E3232332936900C8323C /* Info.plist */,
@@ -255,6 +271,14 @@
 				D31F89EB2801DE3C00147A9F /* AddItemViewController.swift */,
 			);
 			path = AddItem;
+			sourceTree = "<group>";
+		};
+		D32DCD392823EE1E00DC5E15 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D32DCD3A2823EE2A00DC5E15 /* SettingsViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		D35E896628006CF10076CC0D /* Login */ = {
@@ -299,6 +323,32 @@
 				D37D9B74280B3BF500292C19 /* ItemListDataSource.swift */,
 			);
 			path = ItemsList;
+			sourceTree = "<group>";
+		};
+		D380609228116F5900C209E0 /* QRCodesGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				D3806096281177DA00C209E0 /* QRCodesCollectionViewController.swift */,
+				D38060982811BE2200C209E0 /* QRCodeCollectionViewCell.swift */,
+			);
+			path = QRCodesGenerator;
+			sourceTree = "<group>";
+		};
+		D3806093281176FD00C209E0 /* Imported */ = {
+			isa = PBXGroup;
+			children = (
+				D3806094281176FD00C209E0 /* NanoID.swift */,
+			);
+			path = Imported;
+			sourceTree = "<group>";
+		};
+		D3806F9D28199B4B0024243E /* AddItemPopup */ = {
+			isa = PBXGroup;
+			children = (
+				D3806F9E28199BAA0024243E /* CodeDetailsCell.swift */,
+				D3806FA0281A9D7C0024243E /* NewCodeViewController.swift */,
+			);
+			path = AddItemPopup;
 			sourceTree = "<group>";
 		};
 		D3B3873B280821E9004A214F /* ScanInputCell */ = {
@@ -502,6 +552,7 @@
 			files = (
 				D31C48022806BB0500C94737 /* EanIsdbDetails.swift in Sources */,
 				D3791BD82802F6760042BEBD /* ItemDetailsViewController.swift in Sources */,
+				D32DCD3B2823EE2A00DC5E15 /* SettingsViewController.swift in Sources */,
 				D35E896828006D300076CC0D /* SignInViewController.swift in Sources */,
 				D31C480928074F7F00C94737 /* ScanInputCell.swift in Sources */,
 				D31C48072807066C00C94737 /* ScannerViewController.swift in Sources */,
@@ -517,15 +568,20 @@
 				D31F89EC2801DE3C00147A9F /* AddItemViewController.swift in Sources */,
 				D37D9B6A280A0AAF00292C19 /* ItemsListViewController.swift in Sources */,
 				D37D9B71280A1BCA00292C19 /* LayoutConstrainable.swift in Sources */,
+				D3806F9F28199BAA0024243E /* CodeDetailsCell.swift in Sources */,
 				D35E896A28006D6A0076CC0D /* SignUpViewController.swift in Sources */,
+				D38060992811BE2200C209E0 /* QRCodeCollectionViewCell.swift in Sources */,
 				D37D9B682809963100292C19 /* MainFlowRouter.swift in Sources */,
 				B22C755B2334E16D003BD0AA /* InventoryItem.swift in Sources */,
+				D3806095281176FD00C209E0 /* NanoID.swift in Sources */,
 				D37D9B65280984CC00292C19 /* DatabaseItem.swift in Sources */,
 				B23E14172334D7B500C64A8A /* AppCoordinator.swift in Sources */,
 				B22C75592334DEF3003BD0AA /* DatabaseService.swift in Sources */,
+				D3806FA1281A9D7C0024243E /* NewCodeViewController.swift in Sources */,
 				D35E8976280175450076CC0D /* WireFrames.swift in Sources */,
 				D35E897028007A390076CC0D /* OnboardingViewController.swift in Sources */,
 				B254E3182332936700C8323C /* AppDelegate.swift in Sources */,
+				D3806097281177DA00C209E0 /* QRCodesCollectionViewController.swift in Sources */,
 				D35E896E2800795E0076CC0D /* MainRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -692,7 +748,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Inventory Manager/Inventory Manager.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = E6WRHQXQE9;
 				INFOPLIST_FILE = "Inventory Manager/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -702,6 +758,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.appunite.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "test development";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -713,7 +770,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Inventory Manager/Inventory Manager.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = E6WRHQXQE9;
 				INFOPLIST_FILE = "Inventory Manager/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -723,6 +780,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.appunite.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "test development";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

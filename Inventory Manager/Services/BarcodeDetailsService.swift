@@ -51,13 +51,14 @@ class BarcodeDetailsServiceImp: BarcodeDetailsService {
             }
             do {
                 guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any],
-                      let name = json["destination"] as? String
+                      let name = json["description"] as? String
                 else {
                           completion(.success(nil))
                           return
                       }
                 let imageAddress =  json["image_url"] as? String
-                let details = BarcodeProductDetails(code: barcode, image_url: imageAddress, name: name, details: nil)
+                let trimmedName = name.replacingOccurrences(of: "(from barcode.monster)", with: "")
+                let details = BarcodeProductDetails(code: barcode, image_url: imageAddress, name: trimmedName, details: nil)
                 completion(.success(details))
             } catch(let parsingError) {
                 completion(.error(parsingError))

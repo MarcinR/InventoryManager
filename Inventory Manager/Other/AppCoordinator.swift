@@ -30,4 +30,18 @@ class AppCoordinator {
         }
     }
     
+    func openDetailsForCode(code: String) {
+        guard Auth.auth().currentUser != nil else {
+            mainNavigationController.showMessage(message: "You need to be loggged in.")
+            return
+        }
+        let viewController = mainNavigationController.viewControllers.first { $0.isKind(of: MainViewController.self) }
+        guard  let mainVC = viewController as? MainViewController else {
+            mainNavigationController.showMessage(message: "Unknown error!")
+            return
+        }
+        
+        mainVC.showItemWithCode(code: code)
+    }
+    
 }

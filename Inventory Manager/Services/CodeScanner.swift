@@ -99,8 +99,12 @@ class Scanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
             let delegate = self.delegate else {
                 return
         }
-            
-        delegate.scanCompleted(withCode: scannedValue)
+        let finalValue = getId(fromCode: scannedValue)
+        delegate.scanCompleted(withCode: finalValue)
+    }
+    
+    private func getId(fromCode code: String) -> String {
+        return code.replacingOccurrences(of: "inventory://", with: "")
     }
     
     public func requestCaptureSessionStartRunning() {

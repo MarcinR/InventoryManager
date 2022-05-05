@@ -13,7 +13,6 @@ class MainViewController: UIViewController {
     @IBOutlet private var scannerView: UIView!
     @IBOutlet private var searchTextField: UITextField!
     @IBOutlet private var searchButton: UIButton!
-//    var router: MainFlowRouter?
     private var scannedItem: DatabaseItem?
     private var scanner: Scanner?
     
@@ -68,20 +67,11 @@ class MainViewController: UIViewController {
         }
     }
     
-}
-
-private extension MainViewController {
-    func showList(with items: [DatabaseItem]) {
-         let vc = ItemsListViewController(items: items)
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
     func showItemWithCode(code: String) {
         Dependencies.databaseService.searchItemsWithCode(code: code) { [weak self] result in
             switch  result {
             case .success(let items):
                 guard  let item = items?.first else {
-//                    self?.showMessage(message: "Item not found.\n Code: \(code)")
                     self?.showDetailsForCode(code: code)
                     return
                 }
@@ -93,18 +83,22 @@ private extension MainViewController {
             }
         }
     }
+}
+
+private extension MainViewController {
+    func showList(with items: [DatabaseItem]) {
+         let vc = ItemsListViewController(items: items)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
     
     func showDetailsForCode(code: String) {
-        Dependencies.barcodeDetailsService.getBooksDBDetailsForBarcode(barcode: code) { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let details):
-                    self?.showMessage(message: details?.name ?? "No details")
-                case .error(let error):
-                    self?.showMessage(message: error.localizedDescription)
-                }
-            }
-        }
+        let vc = WireFrames.getNewCodeViewController(withCode: code)
+//        vc.modalPresentationStyle = .overFullScreen
+//        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
+        
     }
 }
 
