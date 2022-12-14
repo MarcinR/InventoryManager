@@ -51,8 +51,9 @@ class ItemsListViewController: UIViewController {
 extension ItemsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]
-        let vc = WireFrames.getEditItemViewController(withDatabaseItem: item)
-        navigationController?.pushViewController(vc, animated: true)
+        let vc = WireFrames.getItemDetailsViewController(withItem: item)
+        present(vc.wrapInNavigationViewController(), animated: true, completion: nil)
+//        navigationController?.pushViewController(vc, animated: true)
         
     }
 }

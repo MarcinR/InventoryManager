@@ -61,5 +61,10 @@ class WireFrames {
         vc.code = code
         return vc
     }
-    
+
+    class func getItemDetailsViewController(withItem item: DatabaseItem) -> UIViewController {
+        let vc = LoadControlerWithIdentifier(identifier: "ItemDetailsViewController", storyboard: .main) as! ItemDetailsViewController
+        vc.databaseItem = item
+        return vc
+    }
 }

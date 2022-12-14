@@ -39,7 +39,7 @@ class ItemListDataSource: NSObject, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.reuseIdentifier, for: indexPath) as! ItemCell
-            let item = itemsArray[indexPath.row]
+            let item = itemsArray.isEmpty ? locationsArray[indexPath.row] : itemsArray[indexPath.row]
             cell.bind(with: item)
             return cell
         case 1:
