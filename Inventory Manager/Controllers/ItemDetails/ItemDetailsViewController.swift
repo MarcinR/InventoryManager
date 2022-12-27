@@ -15,6 +15,7 @@ class ItemDetailsViewController: UITableViewController {
     @IBOutlet private var codeLabel: UILabel!
     @IBOutlet private var locationLabel: UILabel!
     @IBOutlet private var descriptionLabel: UILabel!
+    @IBOutlet private var itemsListCell: UITableViewCell!
     // TODO: to nie powinno być przekazywane jako var, raczej jako wywołanie setup(withItem item:DatabaseItem)
     var  databaseItem: DatabaseItem?
 
@@ -31,6 +32,7 @@ class ItemDetailsViewController: UITableViewController {
         codeLabel.text = item.code
         locationLabel.text = item.shelfID
         descriptionLabel.text = item.description
+        itemsListCell.isHidden = !(item.isLocation ?? false)
     }
 
 
@@ -62,8 +64,28 @@ class ItemDetailsViewController: UITableViewController {
         navigationController?.pushViewController(detailsVC, animated: true)
     }
 
+    private func showSubitemsList() {
+        guard let item = databaseItem?.item else { return }
+        Dependencies.databaseService.searchItemsInLocation(withID: item.code) { [weak self] result in
+            switch result {
+            case .error(let error):
+                // TODO: create uiviewcontroller.showError(error)
+                self?.showMessage(message: error.localizedDescription)
+            case .success(let items):
+                let vc = ItemsListViewController(items: items ?? [])
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard indexPath.row == 3 else { return }
-        openLocationDetails()
+        switch indexPath.row {
+        case 3:
+            openLocationDetails()
+        case 5:
+            showSubitemsList()
+        default:
+            return
+        }
     }
 }

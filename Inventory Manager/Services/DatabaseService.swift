@@ -20,6 +20,7 @@ protocol DatabaseService {
     func updateItem(item: DatabaseItem, completion: @escaping (DatabaseActionResult)->())
     func deleteItem(withID id: String, completion: @escaping (DatabaseActionResult)->())
     func searchItemsWithText(text: String,  completion: @escaping (DatabaseActionResult)->())
+    func searchItemsInLocation(withID locationID: String,  completion: @escaping (DatabaseActionResult)->())
 }
 
 class DatabaseServiceImp: DatabaseService {
@@ -94,12 +95,13 @@ class DatabaseServiceImp: DatabaseService {
     func searchItemsWithText(text: String,  completion: @escaping (DatabaseActionResult)->()) {
         itemsRef.observeSingleEvent(of: .value) { snapshot in
             var databaseItems: [DatabaseItem] = []
+            let query = text.lowercased()
             guard let snapshotDictionary = snapshot.value as? [String: AnyObject] else { return }
             for element in snapshotDictionary {
                 // check if 
                 guard let name = element.value["name"] as? String,
                       let description = element.value["description"] as? String,
-                      (name.contains(text) || description.contains(text))
+                      (name.lowercased().contains(query) || description.lowercased().contains(query))
                 else { continue }
                 
                 do {
@@ -112,8 +114,28 @@ class DatabaseServiceImp: DatabaseService {
             }
             completion(.success(databaseItems))
         }
-        
     }
-    
-    
+
+    func searchItemsInLocation(withID locationID: String,  completion: @escaping (DatabaseActionResult)->()) {
+        // TODO: przepisać to aby nie brać wszystkich snapshotów tylko wyszukiwać po Items/item/shelfID
+        itemsRef.observeSingleEvent(of: .value) { snapshot in
+            var databaseItems: [DatabaseItem] = []
+            guard let snapshotDictionary = snapshot.value as? [String: AnyObject] else { return }
+            for element in snapshotDictionary {
+
+                guard let shelf = element.value["shelfID"] as? String,
+                      shelf == locationID
+                else { continue }
+
+                do {
+                    let data = try JSONSerialization.data(withJSONObject: element.value)
+                    let item = try self.decoder.decode(InventoryItem.self, from: data)
+                    databaseItems.append(DatabaseItem(id: element.key, item: item))
+                } catch {
+                    print("an error occurred", error)
+                }
+            }
+            completion(.success(databaseItems))
+        }
+    }
 }
